@@ -70,13 +70,34 @@
 
   <h2 id="map">Explore the bay, turn the layers on and off</h2>
   <p class="maphelp">Each layer is a measured or modeled feature of the bay. Toggle them (top-right of the
-    map) to compare the reefs. The surprising part: Banco Capiro and Cocalito are the <em>murkiest,
-    most nutrient-loaded</em> sites on the map, and the healthiest. Tap any marker for its numbers.</p>
+    map) to compare the reefs. Tela Bay is not one reef but a <em>gradient</em>: Punta Sal (84%) and
+    Cocalito (68%) are among the healthiest in the Caribbean, while the central Banco Capiro bank collapsed
+    in 2023. They all sit in the same murky, nutrient-rich water. Tap any marker for its numbers.</p>
   <div id="map"></div>
   <div class="legend" id="legend"></div>
   <p class="prov">Water clarity &amp; nutrients from NASA MODIS-Aqua satellites (2003-2022). Coral cover from
     field surveys. Heat from NOAA Coral Reef Watch. Currents &amp; upwelling from an ocean-circulation model.
     Full sources on <a href="science.html">The Science</a> and <a href="researchers.html">Data &amp; Researchers</a>.</p>
+
+  <h2>Not one reef, but a gradient</h2>
+  <p class="body">The 2024 Healthy Reefs Initiative survey shows Tela Bay is not uniform. Within a few km of
+    the same murky, nutrient-rich water, coral cover runs from among the highest on Earth to near zero:</p>
+  <div style="overflow-x:auto">
+  <table class="data">
+    <tr><th>Site</th><th>Coral cover (HRI 2024)</th><th>State</th></tr>
+    <tr><td class="mech">Punta Sal</td><td>84%</td><td>exceptional</td></tr>
+    <tr><td class="mech">Prolifera Garden</td><td>80%</td><td>exceptional</td></tr>
+    <tr><td class="mech">Cocalito</td><td>68%</td><td>exceptional</td></tr>
+    <tr><td class="mech">Capiro Alegria</td><td>46%</td><td>partial survival</td></tr>
+    <tr><td class="mech">Banco Capiro (Canyon, Rotonda)</td><td>0.3 to 0.7%</td><td>collapsed 2023</td></tr>
+  </table>
+  </div>
+  <p class="body">The central Banco Capiro bank, the site that made this reef famous at ~59% cover in 2014,
+    largely died in the 2023 heatwave, while other Tela sites held on. That within-bay contrast is a natural
+    experiment, and it points straight at the mechanism: the sites that lost the most grazing after the 2022
+    urchin die-off had no buffer left when the heat arrived. Our <a href="science.html">modeling</a> points to
+    this mechanism: once the urchins are gone, the same heat a grazed reef can survive is enough to collapse
+    an ungrazed one.</p>
 
   <h2>What we're finding (in plain terms)</h2>
   <p class="body">We rebuilt the reef's situation from physics and biology, no hand-waving. Three "it just
@@ -122,8 +143,10 @@
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 const SITES = [
-  {n:"Banco Capiro", ll:[15.90,-87.48], cover:59, cov_note:"~59% in 2014, −31% since 2022", kd:0.122, chl:1.32, dhw:14.0, dhw_note:"measured 2023", status:"HIGH · DECLINING", col:"#db5a34"},
-  {n:"Cocalito (Rebel Reef)", ll:[15.94,-87.55], cover:55, cov_note:"elkhorn thickets; urchin loss", kd:0.140, chl:1.64, dhw:14.0, dhw_note:"regional 2023", status:"HIGH · DECLINING", col:"#db5a34"},
+  {n:"Punta Sal", ll:[15.93,-87.62], cover:84, cov_note:"84% (HRI 2024), the current healthiest in Tela", kd:0.14, chl:1.6, dhw:14.0, dhw_note:"regional 2023", status:"EXCEPTIONAL", col:"#db5a34"},
+  {n:"Cocalito (Rebel Reef)", ll:[15.94,-87.55], cover:68, cov_note:"68% (HRI 2024), still exceptional", kd:0.140, chl:1.64, dhw:14.0, dhw_note:"regional 2023", status:"EXCEPTIONAL", col:"#db5a34"},
+  {n:"Capiro Alegria", ll:[15.905,-87.46], cover:46, cov_note:"46% (HRI 2024), a surviving bank patch", kd:0.122, chl:1.32, dhw:14.0, dhw_note:"regional 2023", status:"PARTIAL", col:"#c1892a"},
+  {n:"Banco Capiro (central bank)", ll:[15.895,-87.485], cover:2, cov_note:"~59% in 2014; central sites 0.3-0.7% after 2023 mass mortality", kd:0.122, chl:1.32, dhw:14.0, dhw_note:"measured 2023", status:"CORE COLLAPSED 2023", col:"#b23b2e"},
   {n:"Cayos Cochinos", ll:[15.98,-86.47], cover:28, cov_note:"MPA reference", kd:0.060, chl:0.43, dhw:null, dhw_note:"pending", status:"MODERATE", col:"#c1892a"},
   {n:"Utila", ll:[16.10,-86.92], cover:20, cov_note:"degraded", kd:0.048, chl:0.30, dhw:null, dhw_note:"pending", status:"DEGRADED", col:"#8a9a96"},
   {n:"Roatán", ll:[16.32,-86.53], cover:20, cov_note:"sponge disease 2018", kd:0.040, chl:0.22, dhw:null, dhw_note:"pending", status:"DEGRADED", col:"#8a9a96"},
