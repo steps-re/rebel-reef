@@ -97,6 +97,17 @@ ax.set_xlabel("Diadema urchin density (per 100 m$^2$)"); ax.set_ylabel("effectiv
 ax.set_title("Banco Capiro vulnerability window (red = collapse threshold)")
 plt.tight_layout(); plt.savefig("/Users/mike/code/steps/coral-tela/fig_vulnerability.png", dpi=140)
 print("saved fig_vulnerability.png")
-print("\nCAVEATS: two-point calibration; thermal coefficient k_h literature-set not fitted; minimal")
-print("model (no explicit heterotrophy/carbonate feedback yet). Robust result = the INTERACTION sign")
-print("and the shrinking safe window, not the exact percentages. Full time series (Op Wallacea) needed to fit.")
+print("""
+CAVEATS (this is a HYPOTHESIS-exploration model, NOT a validated attribution; see ADVERSARIAL_REVIEW.md):
+ 1. IDENTIFIABILITY: ~7 free parameters (a, gamma, g_fish, kappa, d0, k_h, light-fraction) vs ~2-3 data
+    scalars. k_h and the 0.55 light fraction enter only as a product and are not separately identifiable.
+ 2. d0 is solved so the 2014 equilibrium EQUALS 0.59 -> that print is the input echoed back, not a validation.
+ 3. The 'same heat, opposite fate' arms differ in starting coral, starting algae AND grazing, so it is NOT
+    yet a clean single-factor (factorial) test. Redo with a common baseline toggling one factor at a time.
+ 4. a, gamma raised to 0.30/1.10 'for eutrophy' are ASSUMED, not mapped from measured N/P (none exist for Tela).
+ 5. Alternatives NOT ruled out: direct thermal mortality regardless of urchins, disease (SCTLD), storms.
+ 6. The cross-site 'central Banco died, west Tela held' contrast compares reefs ~10-13 km apart with different
+    depth/monitoring -> ecological-fallacy risk; not evidence the model mechanism caused it.
+ WHAT IS SOLID: the herbivory mechanism (from Cramp 2025 FIELD data, not this model); the Mumby base model.
+ TO BECOME PUBLISHABLE: multi-point Op Wallacea time-series fit + parameter priors + sensitivity/identifiability
+    analysis + corrected factorial counterfactual + drop all 'validation/attribution' language until then.""")
