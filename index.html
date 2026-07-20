@@ -116,7 +116,8 @@
   <div class="legend" id="legend"></div>
   <p class="prov">Turbidity &amp; chlorophyll: MODIS-Aqua 4km, 2003–2022 (measured). Coral cover:
     field surveys (Coral Reef Alliance / Operation Wallacea). Heat: NOAA Coral Reef Watch 5km
-    (Banco Capiro 2023 measured; neighbor high-res series integrating). Currents &amp; upwelling: model running.</p>
+    (Banco Capiro 2023 measured; neighbor high-res series integrating). Currents: GLORYS12 particle model —
+    the Ulúa plume reaches the reef but flushes through in ~4 days. Upwelling: tested, no cooling signal.</p>
 
   <h2>The mystery in one line</h2>
   <p class="thesis">Nature ran a controlled experiment: same ocean, same heatwave, opposite outcome.
@@ -133,6 +134,20 @@
     <tr><td class="mech">Heat-tolerant algae</td><td>Needs genetics to confirm; likely carries the shallow elkhorn</td><td><span class="tg">shallow coral</span></td></tr>
   </table>
   </div>
+
+  <h2>What we've ruled out</h2>
+  <p class="body">The obvious "it just got lucky" explanations don't survive the models — which is
+    what makes the reef genuinely interesting:</p>
+  <div style="overflow-x:auto">
+  <table class="data">
+    <tr><th>Ruled out</th><th>Why</th></tr>
+    <tr><td class="mech">It's cooler here</td><td>40 yrs of satellite SST: same regional temperature as the degrading reefs; it hit DHW 14 in 2023 and lived</td></tr>
+    <tr><td class="mech">Currents divert the river</td><td>Particle model: the plume <em>reaches</em> the reef — but flushes through in ~4 days, so the bay gets turbidity's shade without smothering</td></tr>
+    <tr><td class="mech">Deep upwelling cools it</td><td>GLORYS: no cool subsurface pool, and the coast is downwelling-favorable (1/12° caveat noted)</td></tr>
+  </table>
+  </div>
+  <p class="body">Three physical escapes gone. What's left is <b>local biology and optics</b> — the four
+    suspects above — which is exactly what the expedition goes to measure.</p>
 
   <h2>How the trip cracks it — five stations</h2>
   <div class="station"><div class="num">01</div><div>
@@ -231,7 +246,7 @@ const lyrPollute = L.layerGroup([
   L.marker(RIVER.ll).bindPopup('<div class="pop"><h4>'+RIVER.n+'</h4>Honduras\' largest river system: sediment + banana/oil-palm runoff.</div>'),
   L.marker(TELA.ll).bindPopup('<div class="pop"><h4>'+TELA.n+'</h4>City sewage discharges into the bay untreated.</div>'),
   L.circle(RIVER.ll, {radius:9000, color:'#a9792f', weight:1, fillColor:'#a9792f', fillOpacity:0.12, dashArray:'4 5'})
-    .bindTooltip('Ulúa plume influence (approx.)')
+    .bindTooltip('Ulúa plume — model: reaches Banco Capiro but flushes in ~4 days')
 ]);
 
 // Caribbean Current (E→W)
