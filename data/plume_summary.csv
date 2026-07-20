@@ -1,0 +1,4 @@
+scenario,total_particles,frac_reach_banco,frac_reach_cocalito,banco_enterers,cocalito_enterers,mean_residence_days_banco,median_residence_days_banco
+all,21180,0.5283,0.3052,11189,6464,13.65,4.0
+wet_MayNov,12300,0.5419,0.2848,6665,3503,14.88,4.0
+dry_DecApr,8880,0.5095,0.3334,4524,2961,11.84,5.0

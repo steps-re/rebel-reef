@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Science — Rebel Reef / Banco Capiro</title>
+<meta name="description" content="First-principles models of why Banco Capiro survives: herbivory, thermal stress, turbidity shading, carbonate chemistry, sediment transport and upwelling — with methods and citations.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="nav"><div class="inner">
+  <span class="brand">Tela Coral · <b>Rebel Reef</b></span>
+  <a href="index.html">Overview</a>
+  <a href="science.html" class="on">The Science</a>
+  <a href="glossary.html">Glossary</a>
+  <a href="media.html">Media &amp; Film</a>
+  <a href="researchers.html">Data &amp; Researchers</a>
+</div></div>
+
+<div class="sheet">
+  <div class="eyebrow"><span>The Science · methods &amp; evidence</span><span>v1 · pre-expedition draft</span></div>
+  <h1>How we tested the mystery</h1>
+  <p class="lede">We rebuilt Banco Capiro's situation from first principles — established physics, chemistry
+    and ecology applied to real satellite and ocean-model data — rather than assuming an answer. Six models.
+    Every term is defined in the <a href="glossary.html">glossary</a>; every claim is cited below. New to this?
+    Each section has an <span style="color:var(--safe);font-weight:600">In plain terms</span> box.</p>
+  <p class="body soft">Terms used throughout: <b>SST</b> (sea-surface temperature), <b>DHW</b> (Degree Heating
+    Weeks — accumulated heat stress; &gt;4 = bleaching likely, &gt;8 = severe with mortality)<sup class="cite"><a href="#r8">8</a></sup>,
+    <b>Kd490</b> (how fast light dims with depth = water clarity), <b>Ω<sub>arag</sub></b> (aragonite saturation —
+    how easily coral builds skeleton). All defined in the <a href="glossary.html">glossary</a>.</p>
+
+  <div class="callout"><div class="lab">The setup, in plain terms</div>
+    <p>The dying reefs 30–60&nbsp;km away sit in the same regional ocean as Banco Capiro. So we treated the
+      region as a natural experiment: if the healthy reef and the sick reefs share the same water temperature,
+      the thing that saves it must be <em>local</em>. Each model tests one candidate.</p></div>
+
+  <h2>1 · Herbivory — why "few fish" isn't fatal here</h2>
+  <p class="body"><b>Question:</b> healthy reefs need grazers to keep seaweed (macroalgae) off the coral. Banco
+    Capiro has low reef-fish biomass. So why hasn't seaweed taken over?</p>
+  <div class="method"><div class="lab">Method</div>
+    We used the standard coral–macroalgae–turf dynamical model<sup class="cite"><a href="#r1" style="color:#8fd0c4">1</a></sup>
+    (Mumby, Hastings &amp; Edwards 2007): <code>dC/dt = rTC − dC − aMC</code>, <code>dM/dt = aMC − gM/(M+T) + γMT</code>,
+    with grazing <code>g = g_fish + g_urchin</code>. We found the grazing tipping point and tested where Banco Capiro
+    lands with vs without its urchins.
+  </div>
+  <p class="body"><b>Result:</b> the system is bistable with a collapse threshold near <code>g ≈ 0.19</code>. Low
+    fish grazing alone falls <em>below</em> it → the model flips the reef to seaweed. Restore the measured
+    <em>Diadema</em> urchin grazing (this reef has them at roughly 100× the regional density<sup class="cite"><a href="#r9">9</a></sup>)
+    → stable high-coral state. Remove the urchins in a counterfactual → collapse.</p>
+  <div class="callout"><div class="lab">In plain terms</div>
+    <p>Seaweed and coral compete. Something has to mow the seaweed. Fish usually do it; here the fish are scarce,
+      but a huge population of spiny sea urchins does the mowing instead. Take the urchins away and the model says
+      the reef would drown in seaweed.</p></div>
+
+  <h2>2 · Thermal stress — it is <em>not</em> a cool refuge</h2>
+  <p class="body"><b>Question:</b> is Banco Capiro simply cooler, or less heat-stressed, than its neighbors?</p>
+  <div class="method"><div class="lab">Method</div>
+    40 years of NOAA Coral Reef Watch 5&nbsp;km satellite SST<sup class="cite"><a href="#r8" style="color:#8fd0c4">8</a></sup>
+    (1985–2026) for Banco Capiro and four comparison reefs. We computed each site's Maximum Monthly Mean (bleaching
+    reference), seasonal thermal range, and Degree Heating Weeks. Data via NOAA / PacIOOS ERDDAP.
+  </div>
+  <p class="body"><b>Result:</b> Banco Capiro's temperature is statistically indistinguishable from the degrading
+    reefs (Maximum Monthly Mean 29.65 °C vs 29.45–29.54 °C; near-identical seasonal swing). And in the
+    2023 heatwave it reached <b>DHW ≈ 14</b> — deep in the mass-mortality band — yet did not bleach out.
+    So temperature is <em>not</em> the explanation.<sup class="cite"><a href="#r10">10</a></sup></p>
+  <div class="callout"><div class="lab">In plain terms</div>
+    <p>It didn't get lucky with cooler water. It felt the same brutal heat as the reefs that are dying — a dose
+      strong enough to kill most reefs — and lived anyway. That's the core of the mystery, and it points the
+      finger at something local, not the weather.</p></div>
+
+  <h2>3 · The water itself — murkier and richer (satellite)</h2>
+  <p class="body"><b>Question:</b> how different is Banco Capiro's water, measurably?</p>
+  <div class="method"><div class="lab">Method</div>
+    NASA MODIS-Aqua ocean-color, 4&nbsp;km monthly, 2003–2022: <code>Kd490</code> (water clarity) and
+    <code>chlorophyll-a</code> (plankton / nutrient proxy), via NOAA CoastWatch ERDDAP. Compared Tela reefs to
+    the clear-water reefs.
+  </div>
+  <p class="body"><b>Result:</b> Banco Capiro is <b>2.5× more turbid</b> and <b>4.2× more chlorophyll-rich</b>
+    than the clear reefs (Cocalito 2.8× / 5.2×). The "murky, nutrient-loaded bay" is real and quantified. This
+    reframes the pollution as a possible <em>asset</em>, not just a threat.<sup class="cite"><a href="#r14">14</a></sup></p>
+  <div class="callout"><div class="lab">In plain terms</div>
+    <p>Satellites confirm the bay is genuinely dirtier and greener than the pretty reefs nearby. Normally that's
+      bad news. Here it may be doing two useful things at once — shading the coral and feeding it (next two sections).</p></div>
+
+  <h2>4 · Turbidity as sunscreen (light × heat)</h2>
+  <p class="body"><b>Question:</b> can the murk shade the coral enough to blunt the heat stress?</p>
+  <div class="method"><div class="lab">Method</div>
+    Coral bleaching is a light-and-temperature synergy<sup class="cite"><a href="#r3" style="color:#8fd0c4">3</a>,<a href="#r4" style="color:#8fd0c4">4</a></sup>.
+    Using measured clarity (Beer–Lambert: <code>light(z) = light₀·e^(−Kd·z)</code>) we compared light reaching the
+    coral at Banco Capiro vs a clear reef, and formed a light-weighted effective heat dose.
+  </div>
+  <p class="body"><b>Result:</b> at the measured clarity, chronic murk gives the <em>deep</em> bank partial relief;
+    the strongest shading is <em>episodic</em> — during floods and resuspension, exactly when heat peaks. Shallow
+    corals get the least shade, so they must lean on other mechanisms.</p>
+  <div class="callout"><div class="lab">In plain terms</div>
+    <p>Sunburn needs sun. Cloudy water is like sunscreen for coral — it removes the "light" half of heat-plus-light
+      bleaching. It protects the deeper coral best, and works hardest during muddy floods, which is lucky timing.
+      It doesn't fully cover the shallow coral — which is why the "tougher algae" idea still matters.</p></div>
+
+  <h2>5 · Pollution as food + carbonate chemistry</h2>
+  <p class="body"><b>Question:</b> do the river and sewage help or harm the reef's ability to grow?</p>
+  <div class="method"><div class="lab">Method</div>
+    Two channels. (a) Heterotrophy: nutrient-rich, plankton-rich water lets corals feed by eating, which is a known
+    bleaching-resilience pathway<sup class="cite"><a href="#r5" style="color:#8fd0c4">5</a></sup>. (b) Carbonate chemistry
+    (PyCO2SYS): we mixed seawater with river endmembers to see how aragonite saturation <code>Ω_arag</code> responds —
+    high if the river is limestone/karst-fed (alkalinity subsidy), low if eutrophic runoff dominates<sup class="cite"><a href="#r14" style="color:#8fd0c4">14</a></sup>.
+  </div>
+  <p class="body"><b>Result:</b> a limestone-fed river keeps <code>Ω_arag ≈ 4</code> (good for building skeleton) even with
+    dilution; eutrophic runoff drags it down. The deciding measurement is the river's <b>alkalinity : DIC ratio</b> —
+    a field ask for the expedition.</p>
+  <div class="callout"><div class="lab">In plain terms</div>
+    <p>These corals can eat the plankton the pollution grows, so nutrients that starve-then-kill a clean reef may
+      <em>feed</em> this one. And if the muddy river carries dissolved limestone, it hands the coral the raw material
+      to build skeleton. Whether that's true here is a bottle of water away from an answer.</p></div>
+
+  <h2>6 · Currents &amp; upwelling — two "escapes" ruled out (ocean model)</h2>
+  <p class="body"><b>Question:</b> do currents steer the river's mud away from the reef, or does cool deep water
+    well up to protect it?</p>
+  <div class="method"><div class="lab">Method</div>
+    GLORYS12 ocean reanalysis<sup class="cite"><a href="#r12" style="color:#8fd0c4">12</a></sup> (Copernicus Marine,
+    1/12° daily, 2019–2023) driving Lagrangian particles<sup class="cite"><a href="#r13" style="color:#8fd0c4">13</a></sup>
+    (Parcels): a continuous sediment source at the Ulúa mouth, tracked 60 days; plus subsurface temperature, vertical
+    velocity and wind-driven Ekman pumping over the bank.
+  </div>
+  <p class="body"><b>Result:</b> the plume is <em>not</em> diverted — ~53% of particles reach the reef, but they
+    <b>flush through in ~4 days</b> (short residence). And there is <em>no</em> cool subsurface pool or upwelling;
+    the coast is downwelling-favorable. Honest limit: at 1/12° (~8 km) the bay is only ~2–3 cells, so this captures
+    regional transport, not fine sub-bay flow.</p>
+  <div class="callout"><div class="lab">In plain terms</div>
+    <p>Two tempting explanations both failed: the mud isn't steered around the reef (it arrives — but washes through
+      fast, so the reef gets shade without being buried), and there's no hidden cold current. Ruling things out is how
+      you find the real answer.</p></div>
+
+  <h2>What we've ruled out</h2>
+  <div style="overflow-x:auto"><table class="data">
+    <tr><th>Ruled out</th><th>Why</th></tr>
+    <tr><td class="mech">It's cooler here</td><td>Same regional SST as the degrading reefs; hit DHW 14 in 2023 and lived (§2)</td></tr>
+    <tr><td class="mech">Currents divert the river</td><td>Plume reaches the reef but flushes in ~4 days — shade without smothering (§6)</td></tr>
+    <tr><td class="mech">Deep upwelling cools it</td><td>No cool subsurface pool; coast is downwelling-favorable (§6)</td></tr>
+  </table></div>
+  <p class="body">Three physical escapes gone. What remains is <b>local biology and optics</b> — shading, feeding,
+    grazing, and likely a heat-tolerant symbiont<sup class="cite"><a href="#r6">6</a>,<a href="#r7">7</a></sup>, the one
+    piece needing genetics. That's what the expedition measures.</p>
+
+  <h2>How the trip closes the case — five measurement stations</h2>
+  <div class="station"><div class="num">01</div><div><h3>Bleaching-vs-depth + water clarity</h3>
+    <p>Most diagnostic. If shallow corals bleach more than deep in heat, turbidity shading is confirmed. Log light at 3/10/20&nbsp;m at Banco Capiro and a clear reference reef.</p>
+    <div class="meta"><span class="chip gear">PAR logger / Secchi</span><span class="chip win">WIN: shallow bleaches &gt; deep</span></div></div></div>
+  <div class="station"><div class="num">02</div><div><h3>Symbiont tissue samples</h3>
+    <p>The one mechanism we can't compute. Tissue punches for Symbiodiniaceae typing — is heat-tolerant <em>Durusdinium</em> dominant? Coordinate with a coral-symbiont lab.</p>
+    <div class="meta"><span class="chip gear">tissue punch + preservative</span><span class="chip win">WIN: heat-tolerant symbiont</span></div></div></div>
+  <div class="station"><div class="num">03</div><div><h3>Urchin &amp; herbivore-fish transects</h3>
+    <p>Turns the grazing model into a number. Count <em>Diadema</em> per m² and herbivorous fish on fixed transects.</p>
+    <div class="meta"><span class="chip gear">belt transect + quadrat</span><span class="chip win">WIN: high urchin, low fish</span></div></div></div>
+  <div class="station"><div class="num">04</div><div><h3>Water chemistry — river mouth &amp; on-reef</h3>
+    <p>Decides whether pollution helps or harms. Alkalinity, DIC, nutrients, Ω<sub>arag</sub>. Key number: the river's alkalinity : DIC ratio.</p>
+    <div class="meta"><span class="chip gear">bottle samples, fixed</span><span class="chip win">WIN: high river alkalinity</span></div></div></div>
+  <div class="station"><div class="num">05</div><div><h3>Temperature loggers at depth</h3>
+    <p>Satellites miss daily/tidal swings. Loggers at bank crest and base catch high-frequency variability<sup class="cite"><a href="#r2">2</a></sup> and any cool pulses.</p>
+    <div class="meta"><span class="chip gear">HOBO loggers ×2+</span><span class="chip win">WIN: cool pulses / high variance</span></div></div></div>
+
+  <h2>References</h2>
+  <ol class="refs">
+    <li id="r1"><b>Mumby PJ, Hastings A, Edwards HJ (2007).</b> Thresholds and the resilience of Caribbean coral reefs. <i>Nature</i> 450:98–101. doi:10.1038/nature06252</li>
+    <li id="r2"><b>Safaie A et al. (2018).</b> High frequency temperature variability reduces the risk of coral bleaching. <i>Nature Communications</i> 9:1671. doi:10.1038/s41467-018-04074-2</li>
+    <li id="r3"><b>Cacciapaglia C, van Woesik R (2016).</b> Climate-change refugia: shading reef corals by turbidity. <i>Global Change Biology</i> 22:1145–1154. doi:10.1111/gcb.13166</li>
+    <li id="r4"><b>Sully S, van Woesik R (2020).</b> Turbid reefs moderate coral bleaching under climate-related temperature stress. <i>Global Change Biology</i> 26:1367–1373. doi:10.1111/gcb.14948</li>
+    <li id="r5"><b>Grottoli AG, Rodrigues LJ, Palardy JE (2006).</b> Heterotrophic plasticity and resilience in bleached corals. <i>Nature</i> 440:1186–1189. doi:10.1038/nature04565</li>
+    <li id="r6"><b>Baker AC (2003).</b> Flexibility and specificity in coral–algal symbiosis. <i>Annual Review of Ecology, Evolution, and Systematics</i> 34:661–689. doi:10.1146/annurev.ecolsys.34.011802.132417</li>
+    <li id="r7"><b>Berkelmans R, van Oppen MJH (2006).</b> The role of zooxanthellae in the thermal tolerance of corals: a "nugget of hope" for coral reefs in an era of climate change. <i>Proc. R. Soc. B</i> 273:2305–2312. doi:10.1098/rspb.2006.3567</li>
+    <li id="r8"><b>Liu G et al. (2014).</b> Reef-scale thermal stress monitoring of coral ecosystems: NOAA Coral Reef Watch. <i>Remote Sensing</i> 6:11579–11606. doi:10.3390/rs61111579</li>
+    <li id="r9"><b>Lessios HA (1988).</b> Mass mortality of <i>Diadema antillarum</i> in the Caribbean: what have we learned? <i>Annual Review of Ecology and Systematics</i> 19:371–393. doi:10.1146/annurev.es.19.110188.002103</li>
+    <li id="r10"><b>Hughes TP et al. (2017).</b> Global warming and recurrent mass bleaching of corals. <i>Nature</i> 543:373–377. doi:10.1038/nature21707</li>
+    <li id="r11"><b>Coral Reef Alliance / Operation Wallacea (2011–2024).</b> Tela Bay &amp; Banco Capiro benthic surveys and Honduras Marine Research reports. (Field-survey source for coral cover &amp; <i>Diadema</i> density.)</li>
+    <li id="r12"><b>Lellouche J-M et al. (2021).</b> The Copernicus Global 1/12° oceanic and sea-ice GLORYS12 reanalysis. <i>Frontiers in Earth Science</i> 9:698876. doi:10.3389/feart.2021.698876</li>
+    <li id="r13"><b>Delandmeter P, van Sebille E (2019).</b> The Parcels v2.0 Lagrangian framework. <i>Geoscientific Model Development</i> 12:3571–3584. doi:10.5194/gmd-12-3571-2019</li>
+    <li id="r14"><b>Fabricius KE (2005).</b> Effects of terrestrial runoff on the ecology of corals and coral reefs: review and synthesis. <i>Marine Pollution Bulletin</i> 50:125–146. doi:10.1016/j.marpolbul.2004.11.028</li>
+  </ol>
+  <p class="prov">This is a pre-expedition modeling draft (v1), not yet peer-reviewed. Citations support the
+    mechanisms tested; site-specific claims will be validated by the field measurements above. Full methods, code
+    and data: <a href="researchers.html">Data &amp; Researchers</a>.</p>
+
+  <footer>
+    <span class="co">Tela Coral · Rebel Reef</span>
+    <span>Modeling: Steps Ventures</span>
+    <span>v1 · pre-expedition 2026</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "domain": {
+    "lat0": 15.4,
+    "lat1": 16.3,
+    "lon0": -88.1,
+    "lon1": -86.9
+  },
+  "release": {
+    "lat": 15.92,
+    "lon": -87.68,
+    "jitter_deg": 0.03
+  },
+  "banco_box": {
+    "lat0": 15.83,
+    "lat1": 15.97,
+    "lon0": -87.53,
+    "lon1": -87.4
+  },
+  "cocalito_box": {
+    "lat0": 15.9,
+    "lat1": 15.98,
+    "lon0": -87.58,
+    "lon1": -87.5
+  },
+  "track_days": 60,
+  "particles_per_release": 60,
+  "release_stride_days": 5,
+  "all": {
+    "total_particles": 21180,
+    "frac_banco": 0.5282813975448536,
+    "frac_cocal": 0.30519357884796977,
+    "banco_enterers": 11189,
+    "cocal_enterers": 6464,
+    "mean_residence_days_banco": 13.650728393958351,
+    "median_residence_days_banco": 4.0
+  },
+  "wet_MayNov": {
+    "total_particles": 12300,
+    "frac_banco": 0.541869918699187,
+    "frac_cocal": 0.28479674796747967,
+    "banco_enterers": 6665,
+    "cocal_enterers": 3503,
+    "mean_residence_days_banco": 14.879969992498124,
+    "median_residence_days_banco": 4.0
+  },
+  "dry_DecApr": {
+    "total_particles": 8880,
+    "frac_banco": 0.5094594594594595,
+    "frac_cocal": 0.33344594594594595,
+    "banco_enterers": 4524,
+    "cocal_enterers": 2961,
+    "mean_residence_days_banco": 11.83974358974359,
+    "median_residence_days_banco": 5.0
+  },
+  "runtime_s": 750
+}

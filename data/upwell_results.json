@@ -1,0 +1,98 @@
+{
+  "note": "Vertical velocity derived from horizontal divergence of GLORYS uo,vo (no 'wo' in product). Bay Islands (Utila/Roatan/Cayos) lie mostly east of the fetched box; in-domain analogues + eastern shelf used as neighbours.",
+  "heat_season_months": [
+    7,
+    8,
+    9,
+    10
+  ],
+  "ekman_pumping_mday": {
+    "annual_mean": -0.075,
+    "heat_season_mean": -0.137,
+    "sign": "upwelling(+) / downwelling(-)"
+  },
+  "wind_stress_Pa": {
+    "eastward_mean": -0.0713,
+    "northward_mean": -0.0151,
+    "note": "negative eastward = westward stress (easterly trades)"
+  },
+  "points": {
+    "banco_capiro": {
+      "lat": 15.92,
+      "lon": -87.45,
+      "sst_C": 29.12,
+      "T20m_C": 28.91,
+      "T50m_C": 28.15,
+      "T20m_heat_C": 30.04,
+      "T50m_heat_C": 28.79,
+      "thermocline_depth_m": 47.4,
+      "strat_0_50m_C": 0.97,
+      "w_mid_mday": -0.226,
+      "w_mid_heat_mday": -0.205,
+      "own_cell_coast_locked": true
+    },
+    "open_shelf_E": {
+      "lat": 15.9,
+      "lon": -87.2,
+      "sst_C": 29.06,
+      "T20m_C": 28.91,
+      "T50m_C": 28.35,
+      "T20m_heat_C": 30.02,
+      "T50m_heat_C": 29.07,
+      "thermocline_depth_m": 55.8,
+      "strat_0_50m_C": 0.71,
+      "w_mid_mday": -0.445,
+      "w_mid_heat_mday": -0.365,
+      "own_cell_coast_locked": false
+    },
+    "offshore_N": {
+      "lat": 16.2,
+      "lon": -87.47,
+      "sst_C": 28.93,
+      "T20m_C": 28.68,
+      "T50m_C": 27.96,
+      "T20m_heat_C": 29.75,
+      "T50m_heat_C": 28.58,
+      "thermocline_depth_m": 109.7,
+      "strat_0_50m_C": 0.97,
+      "w_mid_mday": -1.162,
+      "w_mid_heat_mday": -1.063,
+      "own_cell_coast_locked": false
+    },
+    "offshore_NE": {
+      "lat": 16.15,
+      "lon": -87.1,
+      "sst_C": 28.95,
+      "T20m_C": 28.75,
+      "T50m_C": 27.98,
+      "T20m_heat_C": 29.82,
+      "T50m_heat_C": 28.59,
+      "thermocline_depth_m": 109.7,
+      "strat_0_50m_C": 0.96,
+      "w_mid_mday": -1.292,
+      "w_mid_heat_mday": -1.066,
+      "own_cell_coast_locked": false
+    },
+    "nearshore_W": {
+      "lat": 15.95,
+      "lon": -87.6,
+      "sst_C": 29.23,
+      "T20m_C": 28.91,
+      "T50m_C": NaN,
+      "T20m_heat_C": 30.04,
+      "T50m_heat_C": NaN,
+      "thermocline_depth_m": 18.5,
+      "strat_0_50m_C": NaN,
+      "w_mid_mday": -1.126,
+      "w_mid_heat_mday": -0.96,
+      "own_cell_coast_locked": true
+    }
+  },
+  "bank_vs_neighbours": {
+    "bank_minus_neighbours_T50m_C": 0.05,
+    "bank_minus_neighbours_T20m_C": 0.1,
+    "bank_minus_neighbours_SST_C": 0.08,
+    "bank_minus_neighbours_w_mid_mday": 0.78,
+    "bank_w_mid_mday": -0.226
+  }
+}

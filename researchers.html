@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data &amp; Researchers — Rebel Reef</title>
+<meta name="description" content="Open data, open code, methods and collaboration requests for the Banco Capiro / Tela Bay coral-resilience study.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="nav"><div class="inner">
+  <span class="brand">Tela Coral · <b>Rebel Reef</b></span>
+  <a href="index.html">Overview</a>
+  <a href="science.html">The Science</a>
+  <a href="glossary.html">Glossary</a>
+  <a href="media.html">Media &amp; Film</a>
+  <a href="researchers.html" class="on">Data &amp; Researchers</a>
+</div></div>
+
+<div class="sheet">
+  <div class="eyebrow"><span>Data &amp; Researchers · open science</span><span>MIT code · CC-BY data</span></div>
+  <h1>Open data, open code.</h1>
+  <p class="lede">Everything behind this project is public and reproducible. The models, the processed data,
+    and the methods are on GitHub. If you study coral, symbionts, reef optics, or coastal oceanography, we would
+    love your eyes on it — and there are specific measurements that would sharpen the science.</p>
+
+  <div class="btnrow">
+    <a class="btn primary" href="https://github.com/steps-re/rebel-reef" target="_blank" rel="noopener">GitHub repository</a>
+    <a class="btn" href="https://github.com/steps-re/rebel-reef/tree/main/models" target="_blank" rel="noopener">Model code</a>
+    <a class="btn" href="https://github.com/steps-re/rebel-reef/tree/main/data" target="_blank" rel="noopener">Processed data</a>
+  </div>
+
+  <h2>What's in the repository</h2>
+  <div style="overflow-x:auto"><table class="data">
+    <tr><th>Path</th><th>Contents</th></tr>
+    <tr><td class="mech">/models</td><td>Every model as a runnable Python script: herbivory bistability, thermal/DHW, satellite ocean-color, turbidity shading, carbonate chemistry, sediment-plume + upwelling (Lagrangian).</td></tr>
+    <tr><td class="mech">/data</td><td>Processed outputs: per-site metrics (CSV/JSON) and figures for each model.</td></tr>
+    <tr><td class="mech">/site</td><td>This website (static HTML/CSS).</td></tr>
+    <tr><td class="mech">README</td><td>Methods, data sources, and how to reproduce each result.</td></tr>
+  </table></div>
+  <p class="prov">Code released under MIT; processed data and text under CC-BY 4.0. Large raw model fields
+    (GLORYS subsets, particle trajectories) are available on request.</p>
+
+  <h2>Data sources (all open)</h2>
+  <div style="overflow-x:auto"><table class="data">
+    <tr><th>Source</th><th>Used for</th><th>Access</th></tr>
+    <tr><td class="mech">NOAA Coral Reef Watch 5 km</td><td>SST &amp; Degree Heating Weeks, 1985–present</td><td>NOAA / PacIOOS ERDDAP</td></tr>
+    <tr><td class="mech">NASA MODIS-Aqua ocean color</td><td>Turbidity (Kd490) &amp; chlorophyll, 2003–2022</td><td>NOAA CoastWatch ERDDAP</td></tr>
+    <tr><td class="mech">Copernicus GLORYS12 reanalysis</td><td>Currents, subsurface temperature, upwelling</td><td>Copernicus Marine Service</td></tr>
+    <tr><td class="mech">Field benthic surveys</td><td>Coral cover, <i>Diadema</i> density</td><td>Coral Reef Alliance / Operation Wallacea</td></tr>
+  </table></div>
+
+  <h2>Reproducing the results</h2>
+  <div class="method"><div class="lab">Quick start</div>
+    Python 3.11 with <code>numpy scipy pandas matplotlib PyCO2SYS</code> runs the self-contained models
+    (herbivory, thermal, ocean-color, turbidity, carbonate) directly. The Lagrangian sediment/upwelling model adds
+    <code>copernicusmarine</code> + <code>parcels</code> + <code>xarray</code>. Each script prints its results and
+    writes a CSV/figure. See the README for exact commands and parameters.
+  </div>
+
+  <h2>Where you could move the needle</h2>
+  <p class="body">The models make specific, falsifiable predictions. These measurements would confirm or kill them:</p>
+  <div style="overflow-x:auto"><table class="data">
+    <tr><th>Open question</th><th>Measurement that would settle it</th></tr>
+    <tr><td class="mech">Heat-tolerant symbiont?</td><td>Symbiodiniaceae typing (ITS2) of Banco Capiro corals, shallow vs deep. The one mechanism we cannot model.</td></tr>
+    <tr><td class="mech">Turbidity shading?</td><td>In-situ PAR/temperature loggers by depth, and bleaching-vs-depth scoring during a heat event.</td></tr>
+    <tr><td class="mech">Carbonate subsidy?</td><td>Total alkalinity, DIC and nutrients at the Ulúa mouth and over the reef; the alkalinity:DIC ratio.</td></tr>
+    <tr><td class="mech">Grazing budget</td><td>Quantitative <i>Diadema</i> and herbivore-fish transects to calibrate the bistability model.</td></tr>
+    <tr><td class="mech">Sub-bay circulation</td><td>Higher-resolution or in-situ current/residence measurements the 1/12° model can't resolve.</td></tr>
+    <tr><td class="mech">Bleaching history</td><td>Any historical bleaching observations at Banco Capiro, by year and depth, to ground-truth the DHW record.</td></tr>
+  </table></div>
+
+  <h2>Draft outreach — for the team to send</h2>
+  <p class="body soft">Editable templates (not sent automatically). Add your own name, links and the recipient's specifics.</p>
+
+  <div class="email"><div class="h">DRAFT · general collaboration</div>
+<pre>Subject: Banco Capiro reef, open models and a field trip
+
+Hi [Name],
+
+We are studying why Banco Capiro in Tela Bay holds 60 to 70% live coral in warm, turbid, nutrient-loaded water that is degrading the reefs nearby. We rebuilt the site from first principles and put the models and data online, and a team is going to measure the key clues on site.
+
+Your work on [topic] lines up closely with what we are finding. If you are open to it, we would value your read on the approach, and there may be a natural collaboration around [symbiont genetics / reef optics / carbonate chemistry].
+
+Everything is here: https://steps-re.github.io/rebel-reef and the code is at https://github.com/steps-re/rebel-reef
+
+Thanks,
+[Your name], Tela Coral</pre></div>
+
+  <div class="email"><div class="h">DRAFT · specific data or sample request</div>
+<pre>Subject: Symbiont typing for Banco Capiro corals
+
+Hi [Name],
+
+Quick, concrete ask. Our modeling can explain most of Banco Capiro's heat survival through shading, feeding and grazing, but not the shallow elkhorn, where we suspect a heat-tolerant symbiont. That is the one piece we cannot resolve without genetics.
+
+On the upcoming trip we can collect tissue samples under the right permits. Would your lab be open to ITS2 typing of paired shallow and deep samples? We would share all data openly and credit the work.
+
+Sampling window is [dates]. Details and methods: https://steps-re.github.io/rebel-reef/researchers.html
+
+Thanks,
+[Your name], Tela Coral</pre></div>
+
+  <h2>Who this might interest</h2>
+  <div class="chiprow">
+    <span class="chip">coral–symbiont genetics labs</span>
+    <span class="chip">turbidity / reef-optics refugia researchers</span>
+    <span class="chip">Caribbean reef ecologists</span>
+    <span class="chip">carbonate-chemistry / calcification groups</span>
+    <span class="chip">Diadema / herbivory specialists</span>
+    <span class="chip">coastal physical oceanographers</span>
+  </div>
+  <p class="prov">Reach out via <a href="index.html">Tela Coral</a> or open an issue on the GitHub repository.</p>
+
+  <footer>
+    <span class="co">Tela Coral · Rebel Reef</span>
+    <span>Open data &amp; code · Steps Ventures modeling</span>
+    <span>v1 · pre-expedition 2026</span>
+  </footer>
+</div>
+</body>
+</html>

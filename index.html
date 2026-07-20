@@ -3,287 +3,147 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rebel Reef — Banco Capiro, Tela Bay</title>
-<meta name="description" content="Why one Honduran coral reef survives heat, pollution and murk that are killing its neighbors. First-principles modeling and an interactive map of the causes.">
+<title>Rebel Reef — the Honduran coral reef that shouldn't exist</title>
+<meta name="description" content="One coral reef in Honduras is thriving in warm, murky, polluted water that is killing reefs everywhere else. Here's the mystery, in plain language, with the science, a map, and how to help.">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<style>
-  :root{
-    --deep:#0b2524; --water:#0f5c63; --coral:#db5a34; --sediment:#a9792f;
-    --mist:#e7ecea; --paper:#ffffff; --line:#ccd8d4; --ink-soft:#3c5250;
-    --mortal:#b23b2e; --bleach:#c1892a; --safe:#2f8f7f; --chl:#2e6b3f;
-    --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
-    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--mist);color:var(--deep);font-family:var(--sans);
-    line-height:1.5;-webkit-font-smoothing:antialiased}
-  .sheet{max-width:900px;margin:0 auto;padding:34px 30px 60px}
-  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--water);display:flex;justify-content:space-between;
-    flex-wrap:wrap;gap:8px;border-bottom:2px solid var(--deep);padding-bottom:9px}
-  h1{font-size:clamp(34px,6vw,60px);line-height:.98;margin:22px 0 6px;letter-spacing:-.02em;
-    text-wrap:balance;font-weight:800}
-  h1 .em{color:var(--coral)}
-  .lede{font-size:17px;max-width:62ch;color:var(--ink-soft);margin:0 0 26px}
-  .lede b{color:var(--deep)}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-    border:1px solid var(--line);border-radius:7px;overflow:hidden;margin-bottom:8px}
-  .stat{background:var(--paper);padding:14px 15px}
-  .stat .n{font-family:var(--mono);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;
-    letter-spacing:-.01em;line-height:1}
-  .stat .n.coral{color:var(--coral)} .stat .n.mortal{color:var(--mortal)} .stat .n.sed{color:var(--sediment)}
-  .stat .k{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--water);margin-top:7px}
-  .stat .s{font-size:12px;color:var(--ink-soft);margin-top:2px}
-  .note{font-size:12px;color:var(--ink-soft);margin:0 0 30px;font-family:var(--mono)}
-  h2{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--water);margin:36px 0 14px;padding-bottom:7px;border-bottom:1px solid var(--line)}
-  .thesis{border-left:3px solid var(--coral);padding:4px 0 4px 18px;margin:0 0 4px;
-    font-size:19px;line-height:1.4;text-wrap:pretty}
-  p.body{font-size:15px;max-width:66ch;color:var(--ink-soft)}
-  p.body b{color:var(--deep)}
-
-  /* MAP */
-  .maphelp{font-size:13.5px;color:var(--ink-soft);margin:0 0 12px;max-width:66ch}
-  #map{height:520px;width:100%;border:1px solid var(--line);border-radius:9px;
-    background:#08201f;z-index:0}
-  .maprow{display:grid;grid-template-columns:1fr;gap:14px}
-  .leaflet-container{font-family:var(--sans)}
-  .leaflet-popup-content-wrapper{border-radius:8px}
-  .pop{font-family:var(--sans);min-width:190px}
-  .pop h4{margin:0 0 6px;font-size:15px;color:var(--deep)}
-  .pop .tag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
-    padding:2px 6px;border-radius:4px;color:#fff}
-  .pop table{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.5px}
-  .pop td{padding:3px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
-  .pop td:last-child{text-align:right;font-family:var(--mono)}
-  .legend{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12.5px;color:var(--ink-soft)}
-  .legend .grp{display:flex;align-items:center;gap:7px}
-  .sw{width:13px;height:13px;border-radius:50%;flex:0 0 auto;border:1px solid rgba(0,0,0,.15)}
-  .prov{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-top:10px}
-
-  table.data{width:100%;border-collapse:collapse;font-size:13.5px}
-  table.data th{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
-    text-align:left;color:var(--water);padding:0 10px 8px 0;border-bottom:1px solid var(--line);vertical-align:bottom}
-  table.data td{padding:11px 10px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
-  table.data td.mech{font-weight:650;white-space:nowrap}
-  .tg{font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:4px;white-space:nowrap;
-    background:var(--mist);color:var(--water)}
-
-  .station{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-  .station:last-child{border-bottom:0}
-  .num{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--coral);font-variant-numeric:tabular-nums;line-height:1}
-  .station h3{margin:0 0 4px;font-size:16px} .station p{margin:0 0 7px;font-size:13.5px;color:var(--ink-soft);max-width:66ch}
-  .meta{display:flex;flex-wrap:wrap;gap:6px 8px;font-family:var(--mono);font-size:11px}
-  .chip{padding:2px 8px;border:1px solid var(--line);border-radius:20px;color:var(--water)}
-  .chip.win{border-color:var(--coral);color:var(--coral)} .chip.gear{background:var(--deep);color:#dfe9e6;border-color:var(--deep)}
-  .ask{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
-  .ask ul{margin:8px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)} .ask li{margin:5px 0} .ask li b{color:var(--deep)}
-  footer{margin-top:38px;padding-top:14px;border-top:2px solid var(--deep);font-family:var(--mono);font-size:11px;
-    color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  footer .co{color:var(--water)}
-  @media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)} #map{height:60vh}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="nav"><div class="inner">
+  <span class="brand">Tela Coral · <b>Rebel Reef</b></span>
+  <a href="index.html" class="on">Overview</a>
+  <a href="science.html">The Science</a>
+  <a href="glossary.html">Glossary</a>
+  <a href="media.html">Media &amp; Film</a>
+  <a href="researchers.html">Data &amp; Researchers</a>
+</div></div>
+
 <div class="sheet">
   <div class="eyebrow">
     <span>Tela Coral · Rebel Reef</span>
-    <span>Banco Capiro / Cocalito · 15.90°N 87.48°W</span>
+    <span>Banco Capiro / Cocalito · Tela Bay, Honduras</span>
   </div>
 
   <h1>The reef that <span class="em">shouldn't exist</span>.</h1>
-  <p class="lede">Banco Capiro holds <b>60–70% live coral</b> in warm, murky, sewage-fed water
-    that is killing the famous clear reefs 30–60&nbsp;km away. It wasn't spared the heat —
-    it took a lethal dose and lived. This page maps <b>why</b>, from first principles.</p>
+  <p class="lede">Off the north coast of Honduras, one coral reef is <b>thriving in water that is
+    killing reefs everywhere else</b> — warm, cloudy, and fed by a city's sewage and a muddy river.
+    Most of the Caribbean's coral is gone. This one is 60–70% alive. This page is the plain-language
+    story of <b>why</b>, and what it might teach us about saving reefs elsewhere.</p>
+
+  <div class="btnrow">
+    <a class="btn primary" href="#map">Explore the map</a>
+    <a class="btn" href="science.html">See the science</a>
+    <a class="btn" href="media.html">Press &amp; film kit</a>
+  </div>
 
   <div class="stats">
-    <div class="stat"><div class="n coral">65%</div><div class="k">live coral</div><div class="s">Caribbean avg &lt;20%</div></div>
-    <div class="stat"><div class="n mortal">14</div><div class="k">DHW · 2023</div><div class="s">&gt;8 = mass mortality</div></div>
-    <div class="stat"><div class="n sed">2.5×</div><div class="k">turbidity</div><div class="s">vs clear reefs · MODIS</div></div>
-    <div class="stat"><div class="n sed">4.2×</div><div class="k">chlorophyll</div><div class="s">nutrient load · MODIS</div></div>
+    <div class="stat"><div class="n coral">60–70%</div><div class="k">live coral</div><div class="s">rest of Caribbean: under 20%</div></div>
+    <div class="stat"><div class="n mortal">2023</div><div class="k">survived the heatwave</div><div class="s">that bleached reefs worldwide</div></div>
+    <div class="stat"><div class="n sed">2.5×</div><div class="k">murkier water</div><div class="s">than nearby healthy reefs</div></div>
+    <div class="stat"><div class="n sed">800</div><div class="k">elkhorn colonies</div><div class="s">a coral nearly gone elsewhere</div></div>
   </div>
-  <p class="note">Same regional sea temperature as Utila &amp; Roatán, which are degrading. The difference is local.</p>
 
-  <h2>Explore the bay — toggle the causes &amp; effects</h2>
-  <p class="maphelp">Each layer is a measured or modeled driver. Turn them on and off (top-right control)
-    to compare the reefs. Notice how Banco Capiro and Cocalito are the <em>most</em> turbid and
-    nutrient-loaded sites — yet the healthiest. Click any marker for its numbers.</p>
-  <div class="maprow">
-    <div id="map"></div>
+  <h2>What's going on</h2>
+  <p class="body">Coral reefs are collapsing. Warming seas make corals "bleach" — they turn white,
+    starve, and often die. Pollution and lost fish finish the job. The famous, crystal-clear reefs of
+    the Bay Islands 30–60&nbsp;km away are fading for exactly these reasons.</p>
+  <p class="body">Then there's <b>Banco Capiro</b>, and its shallow sister patch <b>Cocalito</b> — nicknamed
+    the "Rebel Reef." It sits in the worst-looking water in the region: warm, murky, next to Honduras's
+    biggest river and a city with no sewage treatment. By every rule of thumb it should be dead. Instead
+    it's one of the healthiest reefs in the Caribbean. Scientists have called it an ecological mystery.</p>
+
+  <div class="callout">
+    <div class="lab">The one-line version</div>
+    <p>Nature ran an experiment for us: same ocean, same heatwave, opposite result. The healthy reef and
+      the dying ones share the same water temperature — so whatever saves this one has to be something
+      <em>local</em> to this bay. Our job is to figure out what.</p>
   </div>
+
+  <h2 id="map">Explore the bay — turn the layers on and off</h2>
+  <p class="maphelp">Each layer is a measured or modeled feature of the bay. Toggle them (top-right of the
+    map) to compare the reefs. The surprising part: Banco Capiro and Cocalito are the <em>murkiest,
+    most nutrient-loaded</em> sites on the map — and the healthiest. Tap any marker for its numbers.</p>
+  <div id="map"></div>
   <div class="legend" id="legend"></div>
-  <p class="prov">Turbidity &amp; chlorophyll: MODIS-Aqua 4km, 2003–2022 (measured). Coral cover:
-    field surveys (Coral Reef Alliance / Operation Wallacea). Heat: NOAA Coral Reef Watch 5km
-    (Banco Capiro 2023 measured; neighbor high-res series integrating). Currents: GLORYS12 particle model —
-    the Ulúa plume reaches the reef but flushes through in ~4 days. Upwelling: tested, no cooling signal.</p>
+  <p class="prov">Water clarity &amp; nutrients from NASA MODIS-Aqua satellites (2003–2022). Coral cover from
+    field surveys. Heat from NOAA Coral Reef Watch. Currents &amp; upwelling from an ocean-circulation model.
+    Full sources on <a href="science.html">The Science</a> and <a href="researchers.html">Data &amp; Researchers</a>.</p>
 
-  <h2>The mystery in one line</h2>
-  <p class="thesis">Nature ran a controlled experiment: same ocean, same heatwave, opposite outcome.
-    So whatever protects Banco Capiro lives <em>inside this bay</em> — and it's most likely several
-    things at once, each turning a threat into an advantage.</p>
-
-  <h2>Four suspects</h2>
+  <h2>What we're finding (in plain terms)</h2>
+  <p class="body">We rebuilt the reef's situation from physics and biology — no hand-waving. Three "it just
+    got lucky" explanations turned out to be <b>wrong</b>, which is what makes it fascinating: it isn't cooler
+    here, the river isn't steered away, and there's no cold deep-water welling up. So the reef isn't escaping
+    the stress — it's <b>surviving</b> it. The likely reasons, each one a threat turned into an advantage:</p>
   <div style="overflow-x:auto">
   <table class="data">
-    <tr><th>Mechanism</th><th>What the model shows</th><th>Protects</th></tr>
-    <tr><td class="mech">Turbidity shade</td><td>Measured murk cuts the light half of heat stress — strongest during floods</td><td><span class="tg">deep bank</span></td></tr>
-    <tr><td class="mech">Urchin grazing</td><td>Diadema at ~100× density carry the grazing the missing fish can't</td><td><span class="tg">whole reef</span></td></tr>
-    <tr><td class="mech">River chemistry</td><td>If the Ulúa is limestone-fed, its alkalinity funds calcification</td><td><span class="tg">growth</span></td></tr>
-    <tr><td class="mech">Heat-tolerant algae</td><td>Needs genetics to confirm; likely carries the shallow elkhorn</td><td><span class="tg">shallow coral</span></td></tr>
+    <tr><th>What helps</th><th>In plain terms</th></tr>
+    <tr><td class="mech">The murk is sunscreen</td><td>Bleaching is heat <em>plus</em> sunlight. The cloudy water shades the coral, taking the sting out of the heat — especially the deeper coral.</td></tr>
+    <tr><td class="mech">The pollution is food</td><td>All those nutrients grow plankton, and these corals can <em>eat</em>, not just sunbathe. Extra food helps them survive and bounce back from heat.</td></tr>
+    <tr><td class="mech">Sea urchins do the mowing</td><td>Seaweed smothers coral. This reef has a huge population of spiny urchins that graze the seaweed down — doing the job that vanished fish can't.</td></tr>
+    <tr><td class="mech">Tougher partner algae</td><td>Corals live with tiny algae inside them. This reef may host an unusually heat-tolerant strain — the one piece we can't prove without genetics.</td></tr>
   </table>
   </div>
+  <p class="body soft">None of these alone is the answer. It's the <b>combination</b> — and the fact that this reef
+    has the biology to turn dirty water into an asset instead of a death sentence. <a href="science.html">See how each
+    one was tested &rarr;</a></p>
 
-  <h2>What we've ruled out</h2>
-  <p class="body">The obvious "it just got lucky" explanations don't survive the models — which is
-    what makes the reef genuinely interesting:</p>
-  <div style="overflow-x:auto">
-  <table class="data">
-    <tr><th>Ruled out</th><th>Why</th></tr>
-    <tr><td class="mech">It's cooler here</td><td>40 yrs of satellite SST: same regional temperature as the degrading reefs; it hit DHW 14 in 2023 and lived</td></tr>
-    <tr><td class="mech">Currents divert the river</td><td>Particle model: the plume <em>reaches</em> the reef — but flushes through in ~4 days, so the bay gets turbidity's shade without smothering</td></tr>
-    <tr><td class="mech">Deep upwelling cools it</td><td>GLORYS: no cool subsurface pool, and the coast is downwelling-favorable (1/12° caveat noted)</td></tr>
-  </table>
+  <h2>Why it matters</h2>
+  <p class="body">If a reef can thrive through heat and pollution that kill others, it's a living clue to how
+    coral might survive a warming ocean. The answers here — heat-tolerant algae, the shading effect, the role of
+    urchins — could point to reefs worth protecting elsewhere, and to what actually keeps coral alive. That's why
+    a team is heading there: to measure the clues before we lose the chance.</p>
+
+  <h2>How you can help</h2>
+  <p class="body">The <b>Tela Coral</b> nonprofit protects this reef and tells its story. You can follow the
+    expedition and the documentary, share this page, and support the work.</p>
+  <div class="btnrow">
+    <a class="btn primary" href="media.html">Watch &amp; share the story</a>
+    <a class="btn" href="researchers.html">If you're a scientist</a>
   </div>
-  <p class="body">Three physical escapes gone. What's left is <b>local biology and optics</b> — the four
-    suspects above — which is exactly what the expedition goes to measure.</p>
-
-  <h2>How the trip cracks it — five stations</h2>
-  <div class="station"><div class="num">01</div><div>
-    <h3>Bleaching-vs-depth survey + water clarity</h3>
-    <p>The most diagnostic test. If shallow corals bleach more than deep ones in heat, turbidity shading is confirmed. Log light at 3, 10, 20&nbsp;m at Banco Capiro and a clear reference reef.</p>
-    <div class="meta"><span class="chip gear">PAR logger / Secchi</span><span class="chip gear">depth-tagged transect</span><span class="chip win">WIN: shallow bleaches &gt; deep</span></div></div></div>
-  <div class="station"><div class="num">02</div><div>
-    <h3>Symbiont tissue samples</h3>
-    <p>The one mechanism we can't compute. Tissue punches for Symbiodiniaceae typing — is heat-tolerant <em>Durusdinium</em> dominant? Coordinate with Andrew Baker's lab (U. Miami).</p>
-    <div class="meta"><span class="chip gear">tissue punch + preservative</span><span class="chip win">WIN: heat-tolerant symbiont</span></div></div></div>
-  <div class="station"><div class="num">03</div><div>
-    <h3>Urchin &amp; herbivore-fish transects</h3>
-    <p>Turns the grazing model into a number. Count <em>Diadema</em> per m² and herbivorous fish on fixed transects.</p>
-    <div class="meta"><span class="chip gear">belt transect + quadrat</span><span class="chip win">WIN: high urchin, low fish</span></div></div></div>
-  <div class="station"><div class="num">04</div><div>
-    <h3>Water chemistry — river mouth &amp; on-reef</h3>
-    <p>Decides whether the pollution helps or harms. Sample alkalinity, DIC, nutrients, aragonite saturation. Key number: the river's <b>alkalinity : DIC ratio</b>.</p>
-    <div class="meta"><span class="chip gear">bottle samples, fixed</span><span class="chip win">WIN: high river alkalinity</span></div></div></div>
-  <div class="station"><div class="num">05</div><div>
-    <h3>Temperature loggers at depth</h3>
-    <p>Satellites miss daily and tidal swings. Loggers at the bank crest and base catch high-frequency variability and any cool upwelling pulses.</p>
-    <div class="meta"><span class="chip gear">HOBO loggers ×2+</span><span class="chip win">WIN: cool pulses / high variance</span></div></div></div>
-
-  <h2>Confirm with the Coral Reef Alliance team on site</h2>
-  <div class="ask"><ul>
-    <li><b>Dive traffic:</b> dives/year on Banco Capiro vs Roatán or Utila? (The busy reefs are the sick ones.)</li>
-    <li><b>Fishing effort:</b> is the shallow coral genuinely avoided, and is the 2018 marine-park boundary enforced?</li>
-    <li><b>Bleaching history:</b> which years and at what depth was bleaching observed here?</li>
-    <li><b>Sediment plume:</b> when/where does the Ulúa plume reach the bank — season, after storms?</li>
-  </ul></div>
 
   <footer>
-    <span class="co">Steps Ventures · first-principles reef modeling</span>
-    <span>Models: herbivory · thermal/DHW · turbidity · carbonate · currents · upwelling</span>
-    <span>v1 · pre-expedition</span>
+    <span class="co">Tela Coral · Rebel Reef</span>
+    <span>Modeling: Steps Ventures · open data &amp; code</span>
+    <span>v1 · pre-expedition 2026</span>
   </footer>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-// --- Site data (measured MODIS + field cover + Banco 2023 DHW measured) ---
 const SITES = [
-  {n:"Banco Capiro", ll:[15.90,-87.48], cover:69, cov_note:"mean hard coral >60%",
-   kd:0.122, chl:1.32, dhw:14.0, dhw_note:"measured 2023", status:"THRIVING", col:"#db5a34"},
-  {n:"Cocalito (Rebel Reef)", ll:[15.94,-87.55], cover:60, cov_note:"elkhorn thickets",
-   kd:0.140, chl:1.64, dhw:14.0, dhw_note:"regional 2023", status:"THRIVING", col:"#db5a34"},
-  {n:"Cayos Cochinos", ll:[15.98,-86.47], cover:28, cov_note:"MPA reference",
-   kd:0.060, chl:0.43, dhw:null, dhw_note:"pending", status:"MODERATE", col:"#c1892a"},
-  {n:"Utila", ll:[16.10,-86.92], cover:20, cov_note:"degraded",
-   kd:0.048, chl:0.30, dhw:null, dhw_note:"pending", status:"DEGRADED", col:"#8a9a96"},
-  {n:"Roatán", ll:[16.32,-86.53], cover:20, cov_note:"sponge disease 2018",
-   kd:0.040, chl:0.22, dhw:null, dhw_note:"pending", status:"DEGRADED", col:"#8a9a96"},
+  {n:"Banco Capiro", ll:[15.90,-87.48], cover:69, cov_note:"mean hard coral >60%", kd:0.122, chl:1.32, dhw:14.0, dhw_note:"measured 2023", status:"THRIVING", col:"#db5a34"},
+  {n:"Cocalito (Rebel Reef)", ll:[15.94,-87.55], cover:60, cov_note:"elkhorn thickets", kd:0.140, chl:1.64, dhw:14.0, dhw_note:"regional 2023", status:"THRIVING", col:"#db5a34"},
+  {n:"Cayos Cochinos", ll:[15.98,-86.47], cover:28, cov_note:"MPA reference", kd:0.060, chl:0.43, dhw:null, dhw_note:"pending", status:"MODERATE", col:"#c1892a"},
+  {n:"Utila", ll:[16.10,-86.92], cover:20, cov_note:"degraded", kd:0.048, chl:0.30, dhw:null, dhw_note:"pending", status:"DEGRADED", col:"#8a9a96"},
+  {n:"Roatán", ll:[16.32,-86.53], cover:20, cov_note:"sponge disease 2018", kd:0.040, chl:0.22, dhw:null, dhw_note:"pending", status:"DEGRADED", col:"#8a9a96"},
 ];
-const RIVER = {n:"Ulúa / Chamelecón mouth", ll:[15.92,-87.68]};
-const TELA  = {n:"Tela (city, ~100k, untreated sewage)", ll:[15.775,-87.46]};
-
-const map = L.map('map', {scrollWheelZoom:false}).setView([15.98,-87.30], 9);
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-  {attribution:'Imagery © Esri', maxZoom:17}).addTo(map);
-
-function ramp(v, stops){ // stops: [[val,color],...] ascending
-  for(let i=0;i<stops.length-1;i++){ if(v<=stops[i+1][0]) return stops[i+1][1]; }
-  return stops[stops.length-1][1];
-}
-const cTurb = v=>ramp(v,[[0,'#2f8f7f'],[0.06,'#7ba05a'],[0.10,'#a9792f'],[0.20,'#7a4a12']]);
-const cChl  = v=>ramp(v,[[0,'#bcdfc4'],[0.5,'#5f9e6a'],[1.0,'#2e6b3f'],[1.6,'#194727']]);
-const cHeat = v=>v==null?'#8a9a96':ramp(v,[[0,'#2f8f7f'],[4,'#c1892a'],[8,'#b23b2e']]);
-const cCov  = v=>ramp(v,[[0,'#8a9a96'],[20,'#c98a6a'],[45,'#db5a34']]);
-
-function popup(s){
-  const rows = [
-    ['Coral cover', s.cover+'%  ('+s.cov_note+')'],
-    ['Turbidity Kd490', s.kd.toFixed(3)],
-    ['Chlorophyll', s.chl.toFixed(2)+' mg/m³'],
-    ['2023 heat (DHW)', s.dhw==null?'—  ('+s.dhw_note+')':s.dhw.toFixed(0)+'  ('+s.dhw_note+')'],
-  ];
-  return `<div class="pop"><h4>${s.n}</h4>`+
-    `<span class="tag" style="background:${s.col}">${s.status}</span>`+
-    `<table>`+rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')+`</table></div>`;
-}
-function circ(s, color, radius){
-  return L.circleMarker(s.ll, {radius:radius, color:'#fff', weight:1.5,
-    fillColor:color, fillOpacity:0.9}).bindPopup(popup(s));
-}
-
-// --- Overlay layers ---
-const lyrReefs = L.layerGroup(SITES.map(s=>circ(s, s.col, 9)));
-const lyrTurb  = L.layerGroup(SITES.map(s=>circ(s, cTurb(s.kd), 8+s.kd*60)));
-const lyrChl   = L.layerGroup(SITES.map(s=>circ(s, cChl(s.chl), 8+s.chl*6)));
-const lyrHeat  = L.layerGroup(SITES.map(s=>circ(s, cHeat(s.dhw), s.dhw?8+s.dhw:9)));
-const lyrCov   = L.layerGroup(SITES.map(s=>circ(s, cCov(s.cover), 8+s.cover*0.18)));
-
-// Pollution sources
-const lyrPollute = L.layerGroup([
-  L.marker(RIVER.ll).bindPopup('<div class="pop"><h4>'+RIVER.n+'</h4>Honduras\' largest river system: sediment + banana/oil-palm runoff.</div>'),
+const RIVER={n:"Ulúa / Chamelecón mouth",ll:[15.92,-87.68]}, TELA={n:"Tela (city, ~100k, untreated sewage)",ll:[15.775,-87.46]};
+const map=L.map('map',{scrollWheelZoom:false}).setView([15.98,-87.30],9);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Imagery © Esri',maxZoom:17}).addTo(map);
+function ramp(v,st){for(let i=0;i<st.length-1;i++){if(v<=st[i+1][0])return st[i+1][1];}return st[st.length-1][1];}
+const cTurb=v=>ramp(v,[[0,'#2f8f7f'],[0.06,'#7ba05a'],[0.10,'#a9792f'],[0.20,'#7a4a12']]);
+const cChl=v=>ramp(v,[[0,'#bcdfc4'],[0.5,'#5f9e6a'],[1.0,'#2e6b3f'],[1.6,'#194727']]);
+const cHeat=v=>v==null?'#8a9a96':ramp(v,[[0,'#2f8f7f'],[4,'#c1892a'],[8,'#b23b2e']]);
+const cCov=v=>ramp(v,[[0,'#8a9a96'],[20,'#c98a6a'],[45,'#db5a34']]);
+function popup(s){const rows=[['Coral cover',s.cover+'%  ('+s.cov_note+')'],['Water clarity (Kd490)',s.kd.toFixed(3)],['Chlorophyll',s.chl.toFixed(2)+' mg/m³'],['2023 heat (DHW)',s.dhw==null?'—  ('+s.dhw_note+')':s.dhw.toFixed(0)+'  ('+s.dhw_note+')']];
+  return `<div class="pop"><h4>${s.n}</h4><span class="tag" style="background:${s.col}">${s.status}</span><table>`+rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')+`</table></div>`;}
+function circ(s,color,radius){return L.circleMarker(s.ll,{radius:radius,color:'#fff',weight:1.5,fillColor:color,fillOpacity:0.9}).bindPopup(popup(s));}
+const lyrReefs=L.layerGroup(SITES.map(s=>circ(s,s.col,9)));
+const lyrTurb=L.layerGroup(SITES.map(s=>circ(s,cTurb(s.kd),8+s.kd*60)));
+const lyrChl=L.layerGroup(SITES.map(s=>circ(s,cChl(s.chl),8+s.chl*6)));
+const lyrHeat=L.layerGroup(SITES.map(s=>circ(s,cHeat(s.dhw),s.dhw?8+s.dhw:9)));
+const lyrCov=L.layerGroup(SITES.map(s=>circ(s,cCov(s.cover),8+s.cover*0.18)));
+const lyrPollute=L.layerGroup([
+  L.marker(RIVER.ll).bindPopup('<div class="pop"><h4>'+RIVER.n+'</h4>Honduras\' largest river system: sediment + farm runoff.</div>'),
   L.marker(TELA.ll).bindPopup('<div class="pop"><h4>'+TELA.n+'</h4>City sewage discharges into the bay untreated.</div>'),
-  L.circle(RIVER.ll, {radius:9000, color:'#a9792f', weight:1, fillColor:'#a9792f', fillOpacity:0.12, dashArray:'4 5'})
-    .bindTooltip('Ulúa plume — model: reaches Banco Capiro but flushes in ~4 days')
-]);
-
-// Caribbean Current (E→W)
-const lyrCurrent = L.layerGroup([
-  L.polyline([[16.35,-86.2],[16.15,-86.9],[16.0,-87.4],[15.95,-87.9]],
-    {color:'#2b6fb0', weight:3, opacity:0.85, dashArray:'1 8', lineCap:'round'})
-    .bindTooltip('Caribbean Current — flows east → west', {permanent:false})
-]);
-
-// Marine park (approximate)
-const lyrPark = L.layerGroup([
-  L.polygon([[15.98,-87.76],[15.99,-87.33],[15.72,-87.33],[15.71,-87.76]],
-    {color:'#2f8f7f', weight:2, fillColor:'#2f8f7f', fillOpacity:0.06})
-    .bindTooltip('Tela marine wildlife refuge, protected 2018 (~822 km², approx. bounds)')
-]);
-
-lyrReefs.addTo(map); lyrTurb.addTo(map); lyrPollute.addTo(map);
-
-const overlays = {
-  "🪸 Reefs (health)": lyrReefs,
-  "Turbidity (measured)": lyrTurb,
-  "Chlorophyll / nutrients": lyrChl,
-  "2023 heat stress (DHW)": lyrHeat,
-  "Coral cover": lyrCov,
-  "Pollution sources": lyrPollute,
-  "Caribbean Current": lyrCurrent,
-  "Marine park (2018)": lyrPark,
-};
-L.control.layers(null, overlays, {collapsed:false, position:'topright'}).addTo(map);
-
-// Legend
-const L1 = [
-  ['#db5a34','Thriving / high cover'], ['#c1892a','Moderate'], ['#8a9a96','Degraded'],
-  ['#a9792f','More turbid'], ['#2e6b3f','More chlorophyll'], ['#b23b2e','Severe heat (DHW)'],
-];
-document.getElementById('legend').innerHTML =
-  L1.map(x=>`<span class="grp"><span class="sw" style="background:${x[0]}"></span>${x[1]}</span>`).join('');
+  L.circle(RIVER.ll,{radius:9000,color:'#a9792f',weight:1,fillColor:'#a9792f',fillOpacity:0.12,dashArray:'4 5'}).bindTooltip('Ulúa plume — model: reaches the reef but flushes in ~4 days')]);
+const lyrCurrent=L.layerGroup([L.polyline([[16.35,-86.2],[16.15,-86.9],[16.0,-87.4],[15.95,-87.9]],{color:'#2b6fb0',weight:3,opacity:0.85,dashArray:'1 8',lineCap:'round'}).bindTooltip('Caribbean Current — flows east → west')]);
+const lyrPark=L.layerGroup([L.polygon([[15.98,-87.76],[15.99,-87.33],[15.72,-87.33],[15.71,-87.76]],{color:'#2f8f7f',weight:2,fillColor:'#2f8f7f',fillOpacity:0.06}).bindTooltip('Tela marine wildlife refuge, protected 2018 (~822 km², approx.)')]);
+lyrReefs.addTo(map);lyrTurb.addTo(map);lyrPollute.addTo(map);
+L.control.layers(null,{"🪸 Reefs (health)":lyrReefs,"Murky water (measured)":lyrTurb,"Nutrients / plankton":lyrChl,"2023 heat stress":lyrHeat,"Coral cover":lyrCov,"Pollution sources":lyrPollute,"Caribbean Current":lyrCurrent,"Marine park (2018)":lyrPark},{collapsed:false,position:'topright'}).addTo(map);
+document.getElementById('legend').innerHTML=[['#db5a34','Thriving / high cover'],['#c1892a','Moderate'],['#8a9a96','Degraded'],['#a9792f','Murkier water'],['#2e6b3f','More plankton'],['#b23b2e','Severe heat']].map(x=>`<span class="grp"><span class="sw" style="background:${x[0]}"></span>${x[1]}</span>`).join('');
 </script>
 </body>
 </html>
