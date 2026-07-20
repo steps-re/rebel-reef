@@ -168,14 +168,24 @@
     collaboration with the teams that hold the long-term data (Operation Wallacea) and the symbiont work. See
     <a href="researchers.html">Data &amp; Researchers</a>.</p>
 
-  <div class="callout" style="border-left-color:var(--sediment)"><div class="lab" style="color:var(--sediment)">Honest limits (from our own adversarial review)</div>
-    <p>We ran a hostile internal review of the integrated model, and it holds up only as a <b>hypothesis</b>, not
-      yet an attribution. With two time points it cannot constrain its ~7 parameters, the eutrophy-elevated
-      macroalgal rates are assumed rather than measured, and the "same heat, opposite fate" comparison is not yet a
-      clean single-factor test. What is solid: the herbivory mechanism (from the field data, not our model), the
-      not-a-cool-refuge result, and the satellite optics. The interaction between urchin loss and heat is a
-      motivated hypothesis the expedition and the full time series are needed to test. The review is public in the
-      repository.</p></div>
+  <h2>The corrected analysis (what survived our own red-team)</h2>
+  <p class="body">We ran a hostile internal review of the first version of this model. It found that the original
+    "same heat, opposite fate" result was an artifact of hand-picked parameters, so we rebuilt the test properly:
+    a controlled 2&times;2 factorial from a common baseline (toggle urchins, toggle the 2023 heat, one factor at a
+    time), a Monte Carlo over the uncertain parameters, keeping only parameter sets consistent with the reef being
+    healthy in 2014. The full review and the code are public in the
+    <a href="https://github.com/steps-re/rebel-reef/blob/main/ADVERSARIAL_REVIEW.md" target="_blank" rel="noopener">repository</a>.</p>
+  <p class="body">The result is more honest and more interesting. The <em>acute</em> claim, that losing urchins makes
+    the heat kill more coral outright, did <b>not</b> survive. But the <b>recovery</b> effect did: a reef that still
+    has its grazers bleaches and then <em>recovers</em>, while a reef that has lost them gets overgrown by seaweed in
+    the space the heat opened, and keeps declining. This is the classic grazing-enables-recovery mechanism, robust for
+    reefs near their tipping point (a synergy in 98% of those parameter sets).</p>
+  <img src="data/fig_recovery_synergy.png" alt="Coral recovery trajectories: a grazed reef recovers from the heat pulse, an ungrazed reef keeps declining" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:10px 0">
+  <p class="body soft">So the defensible claim is narrow and testable: <b>if</b> Banco Capiro sat near its herbivory
+    tipping point, the 2022 urchin loss removed its ability to recover from the 2023 heat. How close it was is exactly
+    what the expedition and the full Operation Wallacea time series can settle. Magnitudes are not yet fitted to data.
+    What is solid regardless: the herbivory mechanism (from the field data), the not-a-cool-refuge result, and the
+    satellite optics.</p>
 
   <h2>How the trip closes the case, five measurement stations</h2>
   <div class="station"><div class="num">01</div><div><h3>Bleaching-vs-depth + water clarity</h3>
