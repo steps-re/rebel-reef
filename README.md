@@ -1,15 +1,17 @@
-# Rebel Reef — why Banco Capiro survives
+# Rebel Reef, why Banco Capiro survives
 
 First-principles models of why the **Banco Capiro / Cocalito** reef in **Tela Bay, Honduras**
-holds 60–70% live coral in warm, turbid, sewage-fed water that is degrading the clear-water
-reefs 30–60 km away.
+held ~59% live coral in 2014 (four times the Caribbean average) in warm, turbid, sewage-fed water
+that is degrading the clear-water reefs 30-60 km away. A 2022 Caribbean-wide *Diadema* urchin
+die-off has since driven a ~31% coral decline (Cramp et al. 2025), which is itself the strongest
+validation of the herbivory mechanism modeled here.
 
 **Live site:** https://steps-re.github.io/rebel-reef/
 **For:** the [Tela Coral](https://steps-re.github.io/rebel-reef/) expedition & documentary (Tiffany Duong).
 
 ## The finding in one paragraph
 
-Banco Capiro is *not* a thermal refuge — 40 years of satellite SST show it is as warm as its
+Banco Capiro is *not* a thermal refuge, 40 years of satellite SST show it is as warm as its
 degrading neighbors, and it hit **Degree Heating Weeks ≈ 14** (mass-mortality level) in the 2023
 heatwave and lived. Two "physical escape" hypotheses also fail: currents do **not** divert the Ulúa
 river plume (it reaches the reef but flushes through in ~4 days), and there is **no** cool upwelling.
@@ -29,7 +31,7 @@ heat-tolerant symbiont (the one mechanism requiring genetics to confirm).
 
 | Script | What it does |
 |---|---|
-| `models/grazing_bistability.py` | Coral–macroalgae–urchin bistability (Mumby et al. 2007); shows urchins hold the coral state |
+| `models/grazing_bistability.py` | Coral, macroalgae, urchin bistability (Mumby et al. 2007); shows urchins hold the coral state |
 | `models/thermal_stress.py` | 40-yr CoralTemp SST → MMM, DHW, thermal variability vs neighbor reefs |
 | `models/daily_dhw.py`, `patient_dhw.py`, `peak2023_dhw.py` | Daily DHW pulls (the real heat-stress dose) |
 | `models/ocean_color.py` | MODIS-Aqua turbidity (Kd490) + chlorophyll comparison |
@@ -56,17 +58,19 @@ Note: script paths are currently absolute to the author's machine; adjust as nee
 
 ## Data sources (all open)
 
-- **NOAA Coral Reef Watch 5 km** — SST & Degree Heating Weeks (NOAA / PacIOOS ERDDAP)
-- **NASA MODIS-Aqua** — Kd490 turbidity & chlorophyll (NOAA CoastWatch ERDDAP)
-- **Copernicus GLORYS12** — currents, subsurface temperature, upwelling
-- **Coral Reef Alliance / Operation Wallacea** — coral cover & *Diadema* density (field surveys)
+- **NOAA Coral Reef Watch 5 km**, SST & Degree Heating Weeks (NOAA / PacIOOS ERDDAP)
+- **NASA MODIS-Aqua**, Kd490 turbidity & chlorophyll (NOAA CoastWatch ERDDAP)
+- **Copernicus GLORYS12**, currents, subsurface temperature, upwelling
+- **Coral Reef Alliance / Operation Wallacea**, coral cover & *Diadema* density (field surveys)
 
 ## Honest caveats (v1, pre-expedition)
 
 - This is a modeling draft, **not peer-reviewed**. Site-specific claims await field validation.
-- GLORYS is 1/12° (~8 km); Tela Bay resolves in ~2–3 cells → regional transport only, not sub-bay flow.
+- Reef status: peaked ~59% coral in 2014, declining since the 2022 *Diadema* die-off (Cramp et al. 2025). Framed as "high but declining," not "still thriving."
+- The turbidity mechanisms here are established in the marginal-reef literature and the turbid-refugia idea is contested (Frontiers Mar. Sci. 2023). Our novel angle is the integrated multi-driver attribution, the physical ruling-out, and a predictive vulnerability framework, not the individual mechanisms.
+- GLORYS is 1/12° (~8 km); Tela Bay resolves in ~2-3 cells → regional transport only, not sub-bay flow.
 - The turbidity Kd was first assumed, then **corrected** to the MODIS-measured value (weaker shading than the
-  first pass) — an example of the adversarial checking the project applies.
+  first pass), an example of the adversarial checking the project applies.
 - Neighbor daily-DHW series is still being pulled (ERDDAP throttling); Banco Capiro's 2023 DHW is measured.
 
 ## License

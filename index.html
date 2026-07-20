@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rebel Reef — the Honduran coral reef that shouldn't exist</title>
+<title>Rebel Reef, the Honduran coral reef that shouldn't exist</title>
 <meta name="description" content="One coral reef in Honduras is thriving in warm, murky, polluted water that is killing reefs everywhere else. Here's the mystery, in plain language, with the science, a map, and how to help.">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
@@ -27,10 +27,11 @@
   </div>
 
   <h1>The reef that <span class="em">shouldn't exist</span>.</h1>
-  <p class="lede">Off the north coast of Honduras, one coral reef is <b>thriving in water that is
-    killing reefs everywhere else</b> — warm, cloudy, and fed by a city's sewage and a muddy river.
-    Most of the Caribbean's coral is gone. This one is 60–70% alive. This page is the plain-language
-    story of <b>why</b>, and what it might teach us about saving reefs elsewhere.</p>
+  <p class="lede">Off the north coast of Honduras, one coral reef became <b>the healthiest in the
+    Caribbean</b> while sitting in warm, cloudy, sewage-fed water that should have killed it. Then, in
+    2022, a die-off of the sea urchins that tend it began pulling it back, which is how we learned the
+    urchins were the secret all along. This is the plain-language story of what kept it alive, what
+    threatens it now, and what it teaches us about saving reefs everywhere.</p>
 
   <div class="btnrow">
     <a class="btn primary" href="#map">Explore the map</a>
@@ -39,60 +40,66 @@
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="n coral">60–70%</div><div class="k">live coral</div><div class="s">rest of Caribbean: under 20%</div></div>
-    <div class="stat"><div class="n mortal">2023</div><div class="k">survived the heatwave</div><div class="s">that bleached reefs worldwide</div></div>
+    <div class="stat"><div class="n coral">~59%</div><div class="k">live coral (2014)</div><div class="s">4× the Caribbean average</div></div>
+    <div class="stat"><div class="n mortal">−31%</div><div class="k">coral since 2022</div><div class="s">after the urchins crashed</div></div>
     <div class="stat"><div class="n sed">2.5×</div><div class="k">murkier water</div><div class="s">than nearby healthy reefs</div></div>
-    <div class="stat"><div class="n sed">800</div><div class="k">elkhorn colonies</div><div class="s">a coral nearly gone elsewhere</div></div>
+    <div class="stat"><div class="n sed">~800</div><div class="k">elkhorn colonies</div><div class="s">a coral nearly gone elsewhere</div></div>
   </div>
 
   <h2>What's going on</h2>
-  <p class="body">Coral reefs are collapsing. Warming seas make corals "bleach" — they turn white,
+  <p class="body">Coral reefs are collapsing. Warming seas make corals "bleach", they turn white,
     starve, and often die. Pollution and lost fish finish the job. The famous, crystal-clear reefs of
-    the Bay Islands 30–60&nbsp;km away are fading for exactly these reasons.</p>
-  <p class="body">Then there's <b>Banco Capiro</b>, and its shallow sister patch <b>Cocalito</b> — nicknamed
+    the Bay Islands 30-60&nbsp;km away are fading for exactly these reasons.</p>
+  <p class="body">Then there's <b>Banco Capiro</b>, and its shallow sister patch <b>Cocalito</b>, nicknamed
     the "Rebel Reef." It sits in the worst-looking water in the region: warm, murky, next to Honduras's
-    biggest river and a city with no sewage treatment. By every rule of thumb it should be dead. Instead
-    it's one of the healthiest reefs in the Caribbean. Scientists have called it an ecological mystery.</p>
+    biggest river and a city with no sewage treatment. By every rule of thumb it should be dead. Instead,
+    in 2014 it held <b>~59% live coral</b> (four times the Caribbean average). Scientists called it an
+    ecological mystery.</p>
+  <p class="body">Then nature ran the experiment for real. In 2022 a Caribbean-wide disease wiped out the
+    spiny sea urchins that graze this reef. At Banco Capiro their numbers fell ~88%, and by the next survey
+    <b>seaweed had nearly tripled and coral had dropped about a third</b> (Cramp et al., 2025). The reef
+    that "shouldn't exist" started slipping the moment its urchins vanished. That is the clearest evidence
+    yet of <em>why</em> it was special, and a warning about how fragile that balance is.</p>
 
   <div class="callout">
     <div class="lab">The one-line version</div>
     <p>Nature ran an experiment for us: same ocean, same heatwave, opposite result. The healthy reef and
-      the dying ones share the same water temperature — so whatever saves this one has to be something
+      the dying ones share the same water temperature, so whatever saves this one has to be something
       <em>local</em> to this bay. Our job is to figure out what.</p>
   </div>
 
-  <h2 id="map">Explore the bay — turn the layers on and off</h2>
+  <h2 id="map">Explore the bay, turn the layers on and off</h2>
   <p class="maphelp">Each layer is a measured or modeled feature of the bay. Toggle them (top-right of the
     map) to compare the reefs. The surprising part: Banco Capiro and Cocalito are the <em>murkiest,
-    most nutrient-loaded</em> sites on the map — and the healthiest. Tap any marker for its numbers.</p>
+    most nutrient-loaded</em> sites on the map, and the healthiest. Tap any marker for its numbers.</p>
   <div id="map"></div>
   <div class="legend" id="legend"></div>
-  <p class="prov">Water clarity &amp; nutrients from NASA MODIS-Aqua satellites (2003–2022). Coral cover from
+  <p class="prov">Water clarity &amp; nutrients from NASA MODIS-Aqua satellites (2003-2022). Coral cover from
     field surveys. Heat from NOAA Coral Reef Watch. Currents &amp; upwelling from an ocean-circulation model.
     Full sources on <a href="science.html">The Science</a> and <a href="researchers.html">Data &amp; Researchers</a>.</p>
 
   <h2>What we're finding (in plain terms)</h2>
-  <p class="body">We rebuilt the reef's situation from physics and biology — no hand-waving. Three "it just
+  <p class="body">We rebuilt the reef's situation from physics and biology, no hand-waving. Three "it just
     got lucky" explanations turned out to be <b>wrong</b>, which is what makes it fascinating: it isn't cooler
     here, the river isn't steered away, and there's no cold deep-water welling up. So the reef isn't escaping
-    the stress — it's <b>surviving</b> it. The likely reasons, each one a threat turned into an advantage:</p>
+    the stress, it's <b>surviving</b> it. The likely reasons, each one a threat turned into an advantage:</p>
   <div style="overflow-x:auto">
   <table class="data">
     <tr><th>What helps</th><th>In plain terms</th></tr>
-    <tr><td class="mech">The murk is sunscreen</td><td>Bleaching is heat <em>plus</em> sunlight. The cloudy water shades the coral, taking the sting out of the heat — especially the deeper coral.</td></tr>
+    <tr><td class="mech">The murk is sunscreen</td><td>Bleaching is heat <em>plus</em> sunlight. The cloudy water shades the coral, taking the sting out of the heat, especially the deeper coral.</td></tr>
     <tr><td class="mech">The pollution is food</td><td>All those nutrients grow plankton, and these corals can <em>eat</em>, not just sunbathe. Extra food helps them survive and bounce back from heat.</td></tr>
-    <tr><td class="mech">Sea urchins do the mowing</td><td>Seaweed smothers coral. This reef has a huge population of spiny urchins that graze the seaweed down — doing the job that vanished fish can't.</td></tr>
-    <tr><td class="mech">Tougher partner algae</td><td>Corals live with tiny algae inside them. This reef may host an unusually heat-tolerant strain — the one piece we can't prove without genetics.</td></tr>
+    <tr><td class="mech">Sea urchins do the mowing</td><td>Seaweed smothers coral. A huge population of spiny urchins grazed it down, doing the job the vanished fish can't. When they died off in 2022, seaweed surged and coral fell, confirming they were the keystone (Cramp et al., 2025).</td></tr>
+    <tr><td class="mech">Tougher partner algae</td><td>Corals live with tiny algae inside them. This reef may host an unusually heat-tolerant strain, the one piece we can't prove without genetics.</td></tr>
   </table>
   </div>
-  <p class="body soft">None of these alone is the answer. It's the <b>combination</b> — and the fact that this reef
+  <p class="body soft">None of these alone is the answer. It's the <b>combination</b>, and the fact that this reef
     has the biology to turn dirty water into an asset instead of a death sentence. <a href="science.html">See how each
     one was tested &rarr;</a></p>
 
   <h2>Why it matters</h2>
   <p class="body">If a reef can thrive through heat and pollution that kill others, it's a living clue to how
-    coral might survive a warming ocean. The answers here — heat-tolerant algae, the shading effect, the role of
-    urchins — could point to reefs worth protecting elsewhere, and to what actually keeps coral alive. That's why
+    coral might survive a warming ocean. The answers here, heat-tolerant algae, the shading effect, the role of
+    urchins, could point to reefs worth protecting elsewhere, and to what actually keeps coral alive. That's why
     a team is heading there: to measure the clues before we lose the chance.</p>
 
   <h2>How you can help</h2>
@@ -115,8 +122,8 @@
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 const SITES = [
-  {n:"Banco Capiro", ll:[15.90,-87.48], cover:69, cov_note:"mean hard coral >60%", kd:0.122, chl:1.32, dhw:14.0, dhw_note:"measured 2023", status:"THRIVING", col:"#db5a34"},
-  {n:"Cocalito (Rebel Reef)", ll:[15.94,-87.55], cover:60, cov_note:"elkhorn thickets", kd:0.140, chl:1.64, dhw:14.0, dhw_note:"regional 2023", status:"THRIVING", col:"#db5a34"},
+  {n:"Banco Capiro", ll:[15.90,-87.48], cover:59, cov_note:"~59% in 2014, −31% since 2022", kd:0.122, chl:1.32, dhw:14.0, dhw_note:"measured 2023", status:"HIGH · DECLINING", col:"#db5a34"},
+  {n:"Cocalito (Rebel Reef)", ll:[15.94,-87.55], cover:55, cov_note:"elkhorn thickets; urchin loss", kd:0.140, chl:1.64, dhw:14.0, dhw_note:"regional 2023", status:"HIGH · DECLINING", col:"#db5a34"},
   {n:"Cayos Cochinos", ll:[15.98,-86.47], cover:28, cov_note:"MPA reference", kd:0.060, chl:0.43, dhw:null, dhw_note:"pending", status:"MODERATE", col:"#c1892a"},
   {n:"Utila", ll:[16.10,-86.92], cover:20, cov_note:"degraded", kd:0.048, chl:0.30, dhw:null, dhw_note:"pending", status:"DEGRADED", col:"#8a9a96"},
   {n:"Roatán", ll:[16.32,-86.53], cover:20, cov_note:"sponge disease 2018", kd:0.040, chl:0.22, dhw:null, dhw_note:"pending", status:"DEGRADED", col:"#8a9a96"},
@@ -129,7 +136,7 @@ const cTurb=v=>ramp(v,[[0,'#2f8f7f'],[0.06,'#7ba05a'],[0.10,'#a9792f'],[0.20,'#7
 const cChl=v=>ramp(v,[[0,'#bcdfc4'],[0.5,'#5f9e6a'],[1.0,'#2e6b3f'],[1.6,'#194727']]);
 const cHeat=v=>v==null?'#8a9a96':ramp(v,[[0,'#2f8f7f'],[4,'#c1892a'],[8,'#b23b2e']]);
 const cCov=v=>ramp(v,[[0,'#8a9a96'],[20,'#c98a6a'],[45,'#db5a34']]);
-function popup(s){const rows=[['Coral cover',s.cover+'%  ('+s.cov_note+')'],['Water clarity (Kd490)',s.kd.toFixed(3)],['Chlorophyll',s.chl.toFixed(2)+' mg/m³'],['2023 heat (DHW)',s.dhw==null?'—  ('+s.dhw_note+')':s.dhw.toFixed(0)+'  ('+s.dhw_note+')']];
+function popup(s){const rows=[['Coral cover',s.cover+'%  ('+s.cov_note+')'],['Water clarity (Kd490)',s.kd.toFixed(3)],['Chlorophyll',s.chl.toFixed(2)+' mg/m³'],['2023 heat (DHW)',s.dhw==null?', ('+s.dhw_note+')':s.dhw.toFixed(0)+'  ('+s.dhw_note+')']];
   return `<div class="pop"><h4>${s.n}</h4><span class="tag" style="background:${s.col}">${s.status}</span><table>`+rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')+`</table></div>`;}
 function circ(s,color,radius){return L.circleMarker(s.ll,{radius:radius,color:'#fff',weight:1.5,fillColor:color,fillOpacity:0.9}).bindPopup(popup(s));}
 const lyrReefs=L.layerGroup(SITES.map(s=>circ(s,s.col,9)));
@@ -140,8 +147,8 @@ const lyrCov=L.layerGroup(SITES.map(s=>circ(s,cCov(s.cover),8+s.cover*0.18)));
 const lyrPollute=L.layerGroup([
   L.marker(RIVER.ll).bindPopup('<div class="pop"><h4>'+RIVER.n+'</h4>Honduras\' largest river system: sediment + farm runoff.</div>'),
   L.marker(TELA.ll).bindPopup('<div class="pop"><h4>'+TELA.n+'</h4>City sewage discharges into the bay untreated.</div>'),
-  L.circle(RIVER.ll,{radius:9000,color:'#a9792f',weight:1,fillColor:'#a9792f',fillOpacity:0.12,dashArray:'4 5'}).bindTooltip('Ulúa plume — model: reaches the reef but flushes in ~4 days')]);
-const lyrCurrent=L.layerGroup([L.polyline([[16.35,-86.2],[16.15,-86.9],[16.0,-87.4],[15.95,-87.9]],{color:'#2b6fb0',weight:3,opacity:0.85,dashArray:'1 8',lineCap:'round'}).bindTooltip('Caribbean Current — flows east → west')]);
+  L.circle(RIVER.ll,{radius:9000,color:'#a9792f',weight:1,fillColor:'#a9792f',fillOpacity:0.12,dashArray:'4 5'}).bindTooltip('Ulúa plume, model: reaches the reef but flushes in ~4 days')]);
+const lyrCurrent=L.layerGroup([L.polyline([[16.35,-86.2],[16.15,-86.9],[16.0,-87.4],[15.95,-87.9]],{color:'#2b6fb0',weight:3,opacity:0.85,dashArray:'1 8',lineCap:'round'}).bindTooltip('Caribbean Current, flows east → west')]);
 const lyrPark=L.layerGroup([L.polygon([[15.98,-87.76],[15.99,-87.33],[15.72,-87.33],[15.71,-87.76]],{color:'#2f8f7f',weight:2,fillColor:'#2f8f7f',fillOpacity:0.06}).bindTooltip('Tela marine wildlife refuge, protected 2018 (~822 km², approx.)')]);
 lyrReefs.addTo(map);lyrTurb.addTo(map);lyrPollute.addTo(map);
 L.control.layers(null,{"🪸 Reefs (health)":lyrReefs,"Murky water (measured)":lyrTurb,"Nutrients / plankton":lyrChl,"2023 heat stress":lyrHeat,"Coral cover":lyrCov,"Pollution sources":lyrPollute,"Caribbean Current":lyrCurrent,"Marine park (2018)":lyrPark},{collapsed:false,position:'topright'}).addTo(map);
