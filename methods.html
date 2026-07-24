@@ -49,6 +49,7 @@
     <tr><td class="mech">Dissolved O₂, nitrate, phosphate, silicate, NPP</td><td>Copernicus Marine BGC reanalysis (PISCES)</td><td>0.25° (~27&nbsp;km), daily</td><td>1993-2025</td><td>copernicusmarine</td></tr>
     <tr><td class="mech">Salinity, temperature, mixed-layer depth</td><td>GLORYS12 physical reanalysis</td><td>1/12° (~9&nbsp;km), daily</td><td>1993-2024</td><td>copernicusmarine</td></tr>
     <tr><td class="mech">Rainfall, wind, air temp</td><td>NASA POWER; CHIRPS; GPM IMERG; ERA5</td><td>point / 0.05° / 0.1° / 0.25°</td><td>1981/1997/2000/1940-</td><td>POWER API; Earth Engine</td></tr>
+    <tr><td class="mech">Surface weather obs (storm ground-truth)</td><td>Airport METAR/ASOS, MHLC La Ceiba, MHRO Roatán, MHLM San Pedro Sula</td><td>hourly + specials, station points</td><td>2023 event window</td><td>Iowa Environmental Mesonet</td></tr>
     <tr><td class="mech">High-res imagery (turbidity, SAR)</td><td>Sentinel-2 MSI (10&nbsp;m); Sentinel-1 SAR (10&nbsp;m); Landsat 8/9 (30&nbsp;m + 100&nbsp;m thermal); MODIS/VIIRS</td><td>10-500&nbsp;m</td><td>2015/2014/1984/2000-</td><td>Google Earth Engine</td></tr>
     <tr><td class="mech">Currents (plume model)</td><td>GLORYS12 + OceanParcels Lagrangian</td><td>1/12°, daily</td><td>2019-2023</td><td>copernicusmarine / Parcels</td></tr>
     <tr><td class="mech">Carbonate system</td><td>PyCO2SYS mixing model</td><td>n/a</td><td>n/a</td><td>open-source</td></tr>
@@ -92,7 +93,14 @@
   <img src="data/fig_anomaly_explorer.png" alt="Anomaly explorer heatmap, variables by time 1990-2026" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
 
   <p class="body"><b>The June-2023 event window.</b> Heat rising, turbidity/chlorophyll cloud-limited, and (from the
-    reanalysis) a warm, stratified water column at the die-off onset.</p>
+    reanalysis) a warm, stratified water column at the die-off onset. <b>The trigger storm is confirmed by direct
+    surface observations:</b> hourly METAR/ASOS records (Iowa Environmental Mesonet archive) from the three nearest
+    airports, La Ceiba/Golosón (~65&nbsp;km E), Roatán (offshore) and San Pedro Sula (inland), independently show a
+    thunderstorm tracking from the Caribbean across the coast the night of June 5-6, 2023, with a downburst
+    cold-pool signature at La Ceiba (28→23&nbsp;°C in ~2&nbsp;h, saturation, pressure rise, gusts). These stations
+    don't encode rainfall totals, so the storm's magnitude still rests on the gridded rainfall products plus the
+    record-dry antecedent, but its existence, timing and convective character are instrument-confirmed rather than
+    inferred.</p>
   <img src="data/fig_june2023_zoom.png" alt="June 2023 die-off window: DHW, turbidity, chlorophyll, dissolved oxygen" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
   <img src="data/fig_glorys_lens.png" alt="GLORYS salinity, mixed-layer depth and SST around June 2023 vs baseline" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
 
