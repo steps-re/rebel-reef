@@ -1,0 +1,54 @@
+{
+ "Tela_2023": {
+  "window": "2023-06-01..2023-06-15",
+  "index_at_event": 2.66,
+  "percentile_within_event_year": 74.0,
+  "warm_z": 2.07,
+  "stratified_z": 0.59,
+  "calm_z": null,
+  "salinity_z": 0.45,
+  "rain_window_mm": 29.5,
+  "top10_index_days_2023": {
+   "2023-10-14": 7.02,
+   "2023-10-15": 6.73,
+   "2023-10-13": 6.56,
+   "2023-10-16": 5.8,
+   "2023-03-16": 5.64,
+   "2023-03-17": 5.49,
+   "2023-03-15": 5.38,
+   "2023-06-29": 5.01,
+   "2023-03-29": 4.97,
+   "2023-03-28": 4.92
+  }
+ },
+ "FGB_2016": {
+  "window": "2016-07-20..2016-08-05",
+  "index_at_event": 1.52,
+  "percentile_within_event_year": 54.0,
+  "warm_z": 2.24,
+  "stratified_z": -0.72,
+  "calm_z": null,
+  "salinity_z": -0.77,
+  "rain_window_mm": null
+ },
+ "Bocas_2017": {
+  "window": "2017-09-01..2017-10-05",
+  "index_at_event": 1.52,
+  "percentile_within_event_year": 60.0,
+  "warm_z": 1.15,
+  "stratified_z": 0.37,
+  "calm_z": null,
+  "salinity_z": -1.07,
+  "rain_window_mm": 310.5
+ },
+ "MexCarib_2018": {
+  "window": "2018-07-15..2018-09-15",
+  "index_at_event": -0.9,
+  "percentile_within_event_year": 36.0,
+  "warm_z": -1.15,
+  "stratified_z": 0.25,
+  "calm_z": null,
+  "salinity_z": 0.55,
+  "rain_window_mm": 233.4
+ }
+}

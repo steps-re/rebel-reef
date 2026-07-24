@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methods &amp; Data, Rebel Reef</title>
+<meta name="description" content="Detailed methodology, datasets, analysis pipeline, results, limitations, and data/code availability for the Rebel Reef investigation, written for scientific review and potential peer-reviewed publication.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="nav"><div class="inner">
+  <span class="brand">Tela Coral · <b>Rebel Reef</b></span>
+  <a href="index.html">Overview</a>
+  <a href="science.html">The Science</a>
+  <a href="methods.html" class="on">Methods &amp; Data</a>
+  <a href="researchers.html">Data &amp; Researchers</a>
+  <a href="references.html">References</a>
+  <a href="questions.html">Open Questions</a>
+  <a href="glossary.html">Glossary</a>
+  <a href="media.html">Media &amp; Film</a>
+  <a href="dive-requests.html">Dive Requests</a>
+  <a href="support.html">Support</a>
+</div></div>
+
+<div class="sheet">
+  <div class="eyebrow"><span>Methods, data &amp; reproducibility</span><span>for review / peer publication</span></div>
+  <h1>Methods &amp; Data</h1>
+  <p class="lede">Full documentation of the datasets, analysis pipeline, and statistics behind the Rebel Reef
+    investigation, written so an independent scientist can review, reproduce, or extend it, and so the work can move
+    toward peer-reviewed publication. This is a pre-expedition, satellite-and-reanalysis study; every claim is stated
+    with its resolution limits and confidence. In-situ validation is the explicit next step (see
+    <a href="questions.html">Open Questions</a>).</p>
+
+  <h2>1 · Study site</h2>
+  <p class="body">Banco Capiro / Cocalito ("Rebel Reef"), Tela Bay, Honduras (~15.90 °N, 87.48 °W), a turbid,
+    nutrient-loaded nearshore bank reef ~10 km from the Ulúa River mouth. It held anomalously high hard-coral cover
+    (60-70%) through the 2010s despite lethal heat, then suffered mass mortality in 2023. Comparison reefs: Cocalito
+    (15.94 N, 87.55 W), Utila (16.10 N, 86.92 W), Roatán (16.32 N, 86.53 W), Cayos Cochinos (15.98 N, 86.47 W), and
+    Florida Keys (24.66 N, 81.05 W) as a heat-comparison/dead-reef control.</p>
+
+  <h2>2 · Datasets</h2>
+  <p class="body">All open / free unless noted. Access is programmatic (ERDDAP, Copernicus Marine Toolbox, Google
+    Earth Engine, NASA POWER, PANGAEA).</p>
+  <div style="overflow-x:auto"><table class="data">
+    <tr><th>Variable</th><th>Product</th><th>Resolution</th><th>Record</th><th>Access</th></tr>
+    <tr><td class="mech">SST &amp; Degree Heating Weeks</td><td>NOAA Coral Reef Watch 5&nbsp;km (CoralTemp)</td><td>5&nbsp;km, daily</td><td>1985-2026</td><td>PacIOOS ERDDAP</td></tr>
+    <tr><td class="mech">Turbidity (Kd490) &amp; chlorophyll</td><td>ESA OC-CCI v6</td><td>4&nbsp;km, daily &amp; monthly</td><td>1997-2025</td><td>PML/NOAA COMET ERDDAP</td></tr>
+    <tr><td class="mech">Reef-scale chlorophyll</td><td>Sentinel-3 OLCI (Copernicus Marine)</td><td>300&nbsp;m, daily</td><td>2016-2025</td><td>copernicusmarine</td></tr>
+    <tr><td class="mech">Dissolved O₂, nitrate, phosphate, silicate, NPP</td><td>Copernicus Marine BGC reanalysis (PISCES)</td><td>0.25° (~27&nbsp;km), daily</td><td>1993-2025</td><td>copernicusmarine</td></tr>
+    <tr><td class="mech">Salinity, temperature, mixed-layer depth</td><td>GLORYS12 physical reanalysis</td><td>1/12° (~9&nbsp;km), daily</td><td>1993-2024</td><td>copernicusmarine</td></tr>
+    <tr><td class="mech">Rainfall, wind, air temp</td><td>NASA POWER; CHIRPS; GPM IMERG; ERA5</td><td>point / 0.05° / 0.1° / 0.25°</td><td>1981/1997/2000/1940-</td><td>POWER API; Earth Engine</td></tr>
+    <tr><td class="mech">High-res imagery (turbidity, SAR)</td><td>Sentinel-2 MSI (10&nbsp;m); Sentinel-1 SAR (10&nbsp;m); Landsat 8/9 (30&nbsp;m + 100&nbsp;m thermal); MODIS/VIIRS</td><td>10-500&nbsp;m</td><td>2015/2014/1984/2000-</td><td>Google Earth Engine</td></tr>
+    <tr><td class="mech">Currents (plume model)</td><td>GLORYS12 + OceanParcels Lagrangian</td><td>1/12°, daily</td><td>2019-2023</td><td>copernicusmarine / Parcels</td></tr>
+    <tr><td class="mech">Carbonate system</td><td>PyCO2SYS mixing model</td><td>n/a</td><td>n/a</td><td>open-source</td></tr>
+  </table></div>
+
+  <h2>3 · Analysis pipeline</h2>
+  <p class="body">First-principles mechanism tests, each isolating one hypothesis, plus an integrative index and a
+    cross-site comparison. All code is Python (xarray, pandas, PyCO2SYS, OceanParcels, earthengine-api).</p>
+  <div style="overflow-x:auto"><table class="data">
+    <tr><th>Step</th><th>What it does</th></tr>
+    <tr><td class="mech">Thermal stress</td><td>40-yr CoralTemp SST → Maximum Monthly Mean, seasonal range, Degree Heating Weeks for 6 sites. Result: no cool refuge (§2).</td></tr>
+    <tr><td class="mech">Ocean color</td><td>OC-CCI + Sentinel-3 Kd490/chlorophyll climatology &amp; anomalies; reef-scale plume characterization.</td></tr>
+    <tr><td class="mech">Light × heat</td><td>Beer-Lambert light-at-depth from measured Kd490, combined with DHW into a depth-resolved bleaching-risk index.</td></tr>
+    <tr><td class="mech">Hydrodynamics</td><td>GLORYS12 + OceanParcels: sediment-plume residence time; subsurface temperature &amp; Ekman pumping (upwelling test).</td></tr>
+    <tr><td class="mech">Carbonate</td><td>PyCO2SYS seawater-river mixing → aragonite saturation vs river alkalinity endmember.</td></tr>
+    <tr><td class="mech">Master time series</td><td>Per-site daily merge of all variables 1990-2026 + day-of-year climatology + z-anomaly; whole-record anomaly detection.</td></tr>
+    <tr><td class="mech">Freshwater-lens test</td><td>GLORYS salinity + mixed-layer depth + SST around the June-2023 event vs baseline (stratification signature).</td></tr>
+    <tr><td class="mech">First-flush test</td><td>Antecedent-dryness (prior-90-day rain percentile, dry-spell length) of each event's storm, local point vs basin.</td></tr>
+    <tr><td class="mech">Setup index</td><td>Composite hypoxia-risk index = warm(SST z) + stratified(−mixed-layer z) + calm(−wind z), daily across 2023 &amp; at analog sites.</td></tr>
+    <tr><td class="mech">Dry-season-break catalog</td><td>All 1990-2024 dry-season-break storms at Tela (3-day pulse ≥45&nbsp;mm, dry pre-onset antecedent), each profiled for O₂/stratification/turbidity response, ranked by hypoxia-risk.</td></tr>
+    <tr><td class="mech">Cross-site parallels</td><td>Same signature at documented hypoxia die-offs: East Flower Garden Bank 2016, Bocas del Toro 2017, Mexican Caribbean 2018.</td></tr>
+    <tr><td class="mech">Adversarial review</td><td>Hostile internal red-team of the herbivory model; a 2×2 factorial + Monte Carlo replaced the discarded "same heat, opposite fate" claim.</td></tr>
+  </table></div>
+
+  <h2>4 · Statistical methods</h2>
+  <p class="body"><b>Anomalies</b> are z-scores against a day-of-year climatology (mean and SD by calendar day,
+    baseline years excluding the event year). <b>The setup index</b> sums the standardized warm, stratified, and calm
+    components. <b>The dry-season-break catalog</b> ranks events by a composite of standardized drought, pulse,
+    warmth, calmness, and stratification. <b>Antecedent dryness</b> is the percentile of the 83-day pre-onset rainfall
+    (ending 7 days before the storm, so a multi-day storm's own rain does not inflate its antecedent) against the
+    same-day-of-year climatology. <b>The herbivory model</b> is a Mumby-type coral/macroalgae/turf bistability model,
+    calibrated (not independently validated) to the 2014-2022 record, with a controlled 2×2 factorial and Monte Carlo
+    over uncertain parameters.</p>
+
+  <h2>5 · Key results (figures)</h2>
+  <p class="body">Full narrative in <a href="science.html">The Science</a>. Selected quantitative results:</p>
+
+  <p class="body"><b>Multi-decade, multi-variable record (6 sites, 1990-2026).</b> Daily SST/DHW, turbidity, chlorophyll,
+    dissolved O₂, nutrients, rainfall and wind, merged per site with full-record anomaly detection.</p>
+  <img src="data/fig_fullrecord.png" alt="Banco Capiro full multi-decade record of all variables" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <img src="data/fig_anomaly_explorer.png" alt="Anomaly explorer heatmap, variables by time 1990-2026" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+
+  <p class="body"><b>The June-2023 event window.</b> Heat rising, turbidity/chlorophyll cloud-limited, and (from the
+    reanalysis) a warm, stratified water column at the die-off onset.</p>
+  <img src="data/fig_june2023_zoom.png" alt="June 2023 die-off window: DHW, turbidity, chlorophyll, dissolved oxygen" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <img src="data/fig_glorys_lens.png" alt="GLORYS salinity, mixed-layer depth and SST around June 2023 vs baseline" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+
+  <p class="body"><b>High-resolution imagery could not resolve the event.</b> Sentinel-1 SAR (10&nbsp;m, cloud-penetrating)
+    shows uniform bay water on June 7, no discrete slick or plume, ruling out a large surface signature and confirming
+    the event was subsurface / sub-grid.</p>
+  <img src="data/fig_sar_june7.png" alt="Sentinel-1 SAR of Tela Bay, June 7 2023, uniform water" style="max-width:520px;width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+
+  <p class="body"><b>Dry-season-break storm catalog (1990-2024).</b> Only 10 such storms in 34 years; June 2023 ranks
+    #2 by hypoxia-risk composite, and March 2024 ranks #1 (an even more extreme, and recent, setup, a natural
+    experiment worth checking, see <a href="questions.html">Open Questions</a>). O₂ dips after the storm only when it
+    lands on warm, stratified water.</p>
+  <img src="data/fig_dryseason_catalog.png" alt="Tela dry-season-break storms 1990-2024 ranked by hypoxia-risk composite" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <img src="data/fig_setup_index_2023.png" alt="Tela 2023 hypoxia-risk setup index across the year with rainfall" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+
+  <p class="body"><b>Cross-site parallels.</b> The same setup index at three documented hypoxia die-offs. None occurred
+    at its year's setup peak (all 36th-74th percentile), the die-offs are acute, locally triggered events, and the
+    confirmed freshwater-lens cases (Flower Garden Bank, Bocas del Toro) carry a salinity-drop fingerprint that Tela
+    (a thinner, sub-grid lens) does not resolve.</p>
+  <img src="data/fig_analog_parallels.png" alt="Hypoxia-risk setup index at each analog die-off, event year" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+
+  <h2>6 · Limitations</h2>
+  <ul class="reflist" style="list-style:disc;padding-left:22px">
+    <li><b>Resolution.</b> Ocean reanalyses are 9-27&nbsp;km; they cannot resolve a bay-scale (few-km) or thin
+      nearshore freshwater lens. A consistent finding is that the June-2023 event is <em>below</em> the resolution of
+      every satellite and reanalysis product used, subsurface, sub-grid, and cloud-obscured.</li>
+    <li><b>Cloud.</b> Early June 2023 was heavily clouded, defeating optical/ocean-color imagery in the event window.</li>
+    <li><b>Rainfall products disagree</b> on the June-6 storm magnitude (POWER 62&nbsp;mm, IMERG 20&nbsp;mm, CHIRPS
+      basin 11&nbsp;mm) and on antecedent wetness (local point driest-on-record vs basin near-normal); the local point
+      scale is the more relevant to a coastal first flush.</li>
+    <li><b>Calibration, not validation.</b> The herbivory model is calibrated to the 2014-2022 record, magnitudes are
+      not yet fitted to independent data.</li>
+    <li><b>Novel &amp; uncorroborated.</b> Published 2025 papers attribute 2023 Bay-Islands/Honduras mortality to heat +
+      stony-coral-tissue-loss disease; our acute first-flush/hypoxia hypothesis for the discrete June event is not
+      contradicted but not yet corroborated externally. It is a testable claim requiring in-water data.</li>
+  </ul>
+
+  <h2>7 · Data &amp; code availability</h2>
+  <p class="body">Analysis code (Python) is in the public repository
+    <a href="https://github.com/steps-re/rebel-reef" target="_blank" rel="noopener">github.com/steps-re/rebel-reef</a>,
+    including the adversarial review (<a href="https://github.com/steps-re/rebel-reef/blob/main/ADVERSARIAL_REVIEW.md" target="_blank" rel="noopener">ADVERSARIAL_REVIEW.md</a>).
+    Derived datasets (the per-site daily master time series, the dry-season-break catalog, and event-signature tables)
+    are available on request. All source datasets are public via the providers listed in §2. This is a
+    pre-expedition modeling draft (v1), not peer-reviewed; we welcome review, correction, and collaboration, see
+    <a href="questions.html">Open Questions</a> and <a href="researchers.html">Data &amp; Researchers</a>.</p>
+
+  <p class="prov">Suggested framing for a manuscript: an integrated multi-driver attribution for Banco Capiro
+    (optics + thermal + hydrodynamics + carbonate + herbivory), the physical ruling-out of cooler-water / diverted-
+    plume / upwelling escapes, and a predictive vulnerability framework, plus the novel dry-season-break /
+    first-flush hypoxia hypothesis for the June-2023 event. Co-authors who hold the long-term field data (Operation
+    Wallacea), the symbiont work, and the in-situ observations would be essential.</p>
+
+  <footer>
+    <span class="co">Tela Coral · Rebel Reef</span>
+    <span>Methods &amp; Data v1</span>
+    <span>pre-expedition 2026</span>
+  </footer>
+</div>
+</body>
+</html>
