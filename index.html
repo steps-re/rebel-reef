@@ -88,6 +88,7 @@
     the same murky, nutrient-rich water, coral cover runs from among the highest on Earth to near zero:</p>
   <div style="overflow-x:auto">
   <table class="data">
+    <caption><b>Coral cover across Tela Bay (Healthy Reefs Initiative, 2024).</b> Live-coral cover and condition by site, the gradient from thriving reefs to the collapsed central Banco Capiro bank, all in the same murky, nutrient-rich water.</caption>
     <tr><th>Site</th><th>Coral cover (HRI 2024)</th><th>State</th></tr>
     <tr><td class="mech">Punta Sal</td><td>84%</td><td>exceptional</td></tr>
     <tr><td class="mech">Prolifera Garden</td><td>80%</td><td>exceptional</td></tr>
@@ -110,6 +111,7 @@
     the stress, it's <b>surviving</b> it. The likely reasons, each one a threat turned into an advantage:</p>
   <div style="overflow-x:auto">
   <table class="data">
+    <caption><b>Why this reef survives, in plain terms.</b> The mechanisms the analysis supports, each a threat the reef turns into an advantage.</caption>
     <tr><th>What helps</th><th>In plain terms</th></tr>
     <tr><td class="mech">The murk is sunscreen</td><td>Bleaching is heat <em>plus</em> sunlight. The cloudy water shades the coral, taking the sting out of the heat, especially the deeper coral.</td></tr>
     <tr><td class="mech">The pollution is food</td><td>All those nutrients grow plankton, and these corals can <em>eat</em>, not just sunbathe. Extra food helps them survive and bounce back from heat.</td></tr>
@@ -127,9 +129,17 @@
     and ocean-model data. The leading explanation: a <b>"first flush"</b>, the first big storm after a record-dry
     spring washed a concentrated slug of oxygen-demanding runoff into a warm, calm, stratified bay, crashing the
     oxygen at the reef. It's the same chain documented at other reef die-offs (the Flower Garden Bank, Bocas del
-    Toro), and June 2023 ranks among the <b>two most hypoxia-prone storms in 34 years</b> at Tela. It's a hypothesis,
-    not yet confirmed, the event is too small and too subsurface for satellites to see, so the next step is sensors in
-    the water. <a href="science.html">Read the full investigation &rarr;</a></p>
+    Toro), and June 2023 ranks among the <b>two most hypoxia-prone storms in 34 years</b> at Tela. <b>Three airport
+    weather stations independently confirm the June 5-6 storm itself</b> (La Ceiba, Roatán, San Pedro Sula all
+    recorded a thunderstorm that night), so the trigger is real, not just modeled. What still needs sensors in the
+    water is the oxygen crash it's proposed to have caused, the event is too small and too subsurface for satellites
+    to see. <a href="science.html">Read the full investigation &rarr;</a></p>
+
+  <p class="body">One more thread from the bay's chemistry: the reef sits on a striking <b>black sand</b> that turns
+    out to be rich in <b>manganese and titanium</b>. Manganese, at tiny doses, is documented to help corals resist
+    heat, so we ran the sand's chemistry and asked whether it could even be used to treat sick coral. It's a genuine
+    open lead with both a possible-benefit and a possible-harm branch, not a settled answer.
+    <a href="science.html">See the black-sand chemistry &rarr;</a></p>
 
   <div class="callout"><div class="lab">For researchers</div>
     <p>This is an open, documented investigation. The <a href="methods.html">Methods &amp; Data</a> page has the full
@@ -198,5 +208,6 @@ lyrReefs.addTo(map);lyrTurb.addTo(map);lyrPollute.addTo(map);
 L.control.layers(null,{"🪸 Reefs (health)":lyrReefs,"Murky water (measured)":lyrTurb,"Nutrients / plankton":lyrChl,"2023 heat stress":lyrHeat,"Coral cover":lyrCov,"Pollution sources":lyrPollute,"Caribbean Current":lyrCurrent,"Marine park (2018)":lyrPark},{collapsed:false,position:'topright'}).addTo(map);
 document.getElementById('legend').innerHTML=[['#db5a34','Thriving / high cover'],['#c1892a','Moderate'],['#8a9a96','Degraded'],['#a9792f','Murkier water'],['#2e6b3f','More plankton'],['#b23b2e','Severe heat']].map(x=>`<span class="grp"><span class="sw" style="background:${x[0]}"></span>${x[1]}</span>`).join('');
 </script>
+<script src="site.js"></script>
 </body>
 </html>

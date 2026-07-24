@@ -42,6 +42,7 @@
   <p class="body">All open / free unless noted. Access is programmatic (ERDDAP, Copernicus Marine Toolbox, Google
     Earth Engine, NASA POWER, PANGAEA).</p>
   <div style="overflow-x:auto"><table class="data">
+    <caption><b>Datasets.</b> Every data product used in the study, with the variable it provides, spatial and temporal resolution, period of record, and access route.</caption>
     <tr><th>Variable</th><th>Product</th><th>Resolution</th><th>Record</th><th>Access</th></tr>
     <tr><td class="mech">SST &amp; Degree Heating Weeks</td><td>NOAA Coral Reef Watch 5&nbsp;km (CoralTemp)</td><td>5&nbsp;km, daily</td><td>1985-2026</td><td>PacIOOS ERDDAP</td></tr>
     <tr><td class="mech">Turbidity (Kd490) &amp; chlorophyll</td><td>ESA OC-CCI v6</td><td>4&nbsp;km, daily &amp; monthly</td><td>1997-2025</td><td>PML/NOAA COMET ERDDAP</td></tr>
@@ -59,6 +60,7 @@
   <p class="body">First-principles mechanism tests, each isolating one hypothesis, plus an integrative index and a
     cross-site comparison. All code is Python (xarray, pandas, PyCO2SYS, OceanParcels, earthengine-api).</p>
   <div style="overflow-x:auto"><table class="data">
+    <caption><b>Analysis pipeline.</b> Each processing step from raw data to result, in order.</caption>
     <tr><th>Step</th><th>What it does</th></tr>
     <tr><td class="mech">Thermal stress</td><td>40-yr CoralTemp SST → Maximum Monthly Mean, seasonal range, Degree Heating Weeks for 6 sites. Result: no cool refuge (§2).</td></tr>
     <tr><td class="mech">Ocean color</td><td>OC-CCI + Sentinel-3 Kd490/chlorophyll climatology &amp; anomalies; reef-scale plume characterization.</td></tr>
@@ -89,8 +91,10 @@
 
   <p class="body"><b>Multi-decade, multi-variable record (6 sites, 1990-2026).</b> Daily SST/DHW, turbidity, chlorophyll,
     dissolved O₂, nutrients, rainfall and wind, merged per site with full-record anomaly detection.</p>
-  <img src="data/fig_fullrecord.png" alt="Banco Capiro full multi-decade record of all variables" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
-  <img src="data/fig_anomaly_explorer.png" alt="Anomaly explorer heatmap, variables by time 1990-2026" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figure class="fig"><img src="data/fig_fullrecord.png" alt="Banco Capiro full multi-decade record of all variables" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>The multi-decade, multi-variable record (1990–2026).</b> Daily SST and Degree Heating Weeks, turbidity, chlorophyll, dissolved oxygen, nutrients, rainfall and wind for Banco Capiro, merged per site, the dataset every event analysis draws on.</figcaption></figure>
+  <figure class="fig"><img src="data/fig_anomaly_explorer.png" alt="Anomaly explorer heatmap, variables by time 1990-2026" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>Anomaly heatmap.</b> Each environmental variable expressed as a day-of-year z-anomaly across 1990–2026, so unusual conditions stand out as hot or cold cells. Used to scan the June-2023 window against the full climatology.</figcaption></figure>
 
   <p class="body"><b>The June-2023 event window.</b> Heat rising, turbidity/chlorophyll cloud-limited, and (from the
     reanalysis) a warm, stratified water column at the die-off onset. <b>The trigger storm is confirmed by direct
@@ -101,26 +105,32 @@
     don't encode rainfall totals, so the storm's magnitude still rests on the gridded rainfall products plus the
     record-dry antecedent, but its existence, timing and convective character are instrument-confirmed rather than
     inferred.</p>
-  <img src="data/fig_june2023_zoom.png" alt="June 2023 die-off window: DHW, turbidity, chlorophyll, dissolved oxygen" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
-  <img src="data/fig_glorys_lens.png" alt="GLORYS salinity, mixed-layer depth and SST around June 2023 vs baseline" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figure class="fig"><img src="data/fig_june2023_zoom.png" alt="June 2023 die-off window: DHW, turbidity, chlorophyll, dissolved oxygen" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>The June-2023 die-off window in detail.</b> Degree Heating Weeks rising, turbidity and chlorophyll cloud-limited, and (from reanalysis) a warm, stratified water column at onset. Optical products are gappy here because early June was heavily clouded.</figcaption></figure>
+  <figure class="fig"><img src="data/fig_glorys_lens.png" alt="GLORYS salinity, mixed-layer depth and SST around June 2023 vs baseline" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>GLORYS12 reanalysis around June 2023 versus baseline:</b> sea-surface salinity, mixed-layer depth and SST. The bay-scale freshwater lens we hypothesize is thinner than the model's ~9&nbsp;km grid, so no salinity drop is resolved, one reason the event is sub-grid.</figcaption></figure>
 
   <p class="body"><b>High-resolution imagery could not resolve the event.</b> Sentinel-1 SAR (10&nbsp;m, cloud-penetrating)
     shows uniform bay water on June 7, no discrete slick or plume, ruling out a large surface signature and confirming
     the event was subsurface / sub-grid.</p>
-  <img src="data/fig_sar_june7.png" alt="Sentinel-1 SAR of Tela Bay, June 7 2023, uniform water" style="max-width:520px;width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figure class="fig"><img src="data/fig_sar_june7.png" alt="Sentinel-1 SAR of Tela Bay, June 7 2023, uniform water" style="max-width:520px;width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>Sentinel-1 radar (10&nbsp;m, cloud-penetrating) of Tela Bay, June 7, 2023.</b> The water surface is uniform, no discrete slick, plume or lens, which rules out a large surface signature (and the ship-dumping hypothesis) and points to a subsurface event.</figcaption></figure>
 
   <p class="body"><b>Dry-season-break storm catalog (1990-2024).</b> Only 10 such storms in 34 years; June 2023 ranks
     #2 by hypoxia-risk composite, and March 2024 ranks #1 (an even more extreme, and recent, setup, a natural
     experiment worth checking, see <a href="questions.html">Open Questions</a>). O₂ dips after the storm only when it
     lands on warm, stratified water.</p>
-  <img src="data/fig_dryseason_catalog.png" alt="Tela dry-season-break storms 1990-2024 ranked by hypoxia-risk composite" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
-  <img src="data/fig_setup_index_2023.png" alt="Tela 2023 hypoxia-risk setup index across the year with rainfall" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figure class="fig"><img src="data/fig_dryseason_catalog.png" alt="Tela dry-season-break storms 1990-2024 ranked by hypoxia-risk composite" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>Dry-season-break storms at Tela, 1990–2024.</b> Storms breaking a dry antecedent (Jan–Jun pulse ≥45&nbsp;mm after a bottom-third dry spell), ranked by a hypoxia-risk composite. Only 10 in 34 years; June 2023 ranks #2, March 2024 #1. Oxygen dips after these storms only when they land on warm, stratified water.</figcaption></figure>
+  <figure class="fig"><img src="data/fig_setup_index_2023.png" alt="Tela 2023 hypoxia-risk setup index across the year with rainfall" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>2023 hypoxia-risk "setup index" across the year</b> (warm SST + stratification + calm wind), rainfall overlaid. The setup peaked in October and March, not June, yet the reef died in June, so the acute rain-pulse trigger, not the background, set the timing.</figcaption></figure>
 
   <p class="body"><b>Cross-site parallels.</b> The same setup index at three documented hypoxia die-offs. None occurred
     at its year's setup peak (all 36th-74th percentile), the die-offs are acute, locally triggered events, and the
     confirmed freshwater-lens cases (Flower Garden Bank, Bocas del Toro) carry a salinity-drop fingerprint that Tela
     (a thinner, sub-grid lens) does not resolve.</p>
-  <img src="data/fig_analog_parallels.png" alt="Hypoxia-risk setup index at each analog die-off, event year" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figure class="fig"><img src="data/fig_analog_parallels.png" alt="Hypoxia-risk setup index at each analog die-off, event year" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>Cross-site comparison.</b> The same setup index at three documented reef die-offs (East Flower Garden Bank 2016, Bocas del Toro 2017, Mexican Caribbean 2018), each in its event year. None occurred at its year's setup peak, all acute, locally triggered, the pattern Tela fits.</figcaption></figure>
 
   <p class="body"><b>Black-sand geochemistry and redox model.</b> Six XRF scans (two sites, Tela Coral) confirm a
     heavy-mineral placer sand: ~22-24% Ti (ilmenite/rutile), ~1.6% Mn, ~5% Zr, ~0.5% Cr (chromite), ~350&nbsp;ppm Th
@@ -133,7 +143,8 @@
     composition essentially unstudied; the closest analog (Red Sea black sand + heat) reports a synergistic stressor,
     not a shield. Method: labile-fraction assumptions per mineral phase; database phreeqc.dat (Cr/U handled
     qualitatively where absent). See <a href="science.html">The Science §8</a>.</p>
-  <img src="data/fig_sand_redox.png" alt="Redox ladder and Mn-beneficial-dose co-release model for the Tela black sand" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figure class="fig"><img src="data/fig_sand_redox.png" alt="Redox ladder and Mn-beneficial-dose co-release model for the Tela black sand" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>Black-sand redox and dose model</b> on the measured XRF. Left: as oxygen falls, the sand's Mn and Fe oxides become soluble (Mn²⁺/Fe²⁺ released) while Cr and U stay locked in refractory minerals. Right: at a Mn-beneficial dose (~5&nbsp;µg/L), co-released Cr/U/As are negligible; only Fe reaches a coral-harm level, hence the iron-free lagoon sand is preferred.</figcaption></figure>
 
   <h2>6 · Limitations</h2>
   <ul class="reflist" style="list-style:disc;padding-left:22px">
@@ -176,5 +187,6 @@
     <span>pre-expedition 2026</span>
   </footer>
 </div>
+<script src="site.js"></script>
 </body>
 </html>

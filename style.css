@@ -61,6 +61,33 @@ table.data td.mech{font-weight:650}
 table.data th:first-child,table.data td.mech{width:46%}
 .tg{font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:4px;white-space:nowrap;background:var(--mist);color:var(--water)}
 
+/* FIGURES + captions + download */
+figure.fig{margin:14px 0}
+figure.fig img{display:block}
+figure.fig img.zoomable{cursor:zoom-in}
+figure.fig figcaption{font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin-top:7px;max-width:80ch}
+figure.fig figcaption b{color:var(--deep)}
+a.dl,.dlbtn{font-family:var(--mono);font-size:11px;color:var(--water);text-decoration:none;
+  border:1px solid var(--line);border-radius:5px;padding:2px 8px;background:var(--paper);
+  white-space:nowrap;cursor:pointer;display:inline-block;line-height:1.6}
+a.dl{margin-left:6px}
+a.dl:hover,.dlbtn:hover{border-color:var(--water);color:var(--deep)}
+.tbltools{display:flex;justify-content:flex-end;margin:0 0 6px}
+table.data caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--ink-soft);
+  line-height:1.5;margin-bottom:9px;max-width:82ch}
+table.data caption b{color:var(--deep)}
+
+/* LIGHTBOX (click-to-zoom) */
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(8,20,19,.93);display:none;
+  align-items:center;justify-content:center;padding:26px}
+.lightbox.on{display:flex}
+.lb-inner{max-width:96vw;max-height:96vh;display:flex;flex-direction:column;align-items:center;position:relative}
+.lb-inner img{max-width:96vw;max-height:82vh;object-fit:contain;border-radius:6px;background:#fff}
+.lb-cap{color:#d6e4e1;font-size:13px;line-height:1.5;margin-top:12px;max-width:82ch;text-align:center}
+.lb-close{position:absolute;top:-16px;right:-4px;background:none;border:none;color:#fff;
+  font-size:34px;line-height:1;cursor:pointer;padding:0 6px}
+@media (max-width:640px){.lb-close{top:-42px;right:0}}
+
 /* CALLOUT — plain-terms explainer */
 .callout{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--safe);
   border-radius:8px;padding:14px 18px;margin:14px 0;max-width:70ch}

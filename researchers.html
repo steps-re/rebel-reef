@@ -43,8 +43,9 @@
 
   <h2>What's in the repository</h2>
   <div style="overflow-x:auto"><table class="data">
+    <caption><b>Repository layout.</b> What lives in each folder of the public GitHub repository.</caption>
     <tr><th>Path</th><th>Contents</th></tr>
-    <tr><td class="mech">/models</td><td>Every model as a runnable Python script: herbivory bistability, thermal/DHW, satellite ocean-color, turbidity shading, carbonate chemistry, sediment-plume + upwelling (Lagrangian).</td></tr>
+    <tr><td class="mech">/models</td><td>Every model as a runnable Python script: herbivory bistability, thermal/DHW, satellite ocean-color, turbidity shading, carbonate chemistry, sediment-plume + upwelling (Lagrangian), black-sand redox (PHREEQC), and the first-flush / dry-season-storm catalog + hypoxia setup-index.</td></tr>
     <tr><td class="mech">/data</td><td>Processed outputs: per-site metrics (CSV/JSON) and figures for each model.</td></tr>
     <tr><td class="mech">/site</td><td>This website (static HTML/CSS).</td></tr>
     <tr><td class="mech">README</td><td>Methods, data sources, and how to reproduce each result.</td></tr>
@@ -54,10 +55,13 @@
 
   <h2>Data sources (all open)</h2>
   <div style="overflow-x:auto"><table class="data">
+    <caption><b>Open data sources.</b> The public datasets and field data behind the models, and where to get each. Full dataset table with resolutions is on the <a href="methods.html">Methods &amp; Data</a> page.</caption>
     <tr><th>Source</th><th>Used for</th><th>Access</th></tr>
     <tr><td class="mech">NOAA Coral Reef Watch 5 km</td><td>SST &amp; Degree Heating Weeks, 1985, present</td><td>NOAA / PacIOOS ERDDAP</td></tr>
     <tr><td class="mech">NASA MODIS-Aqua ocean color</td><td>Turbidity (Kd490) &amp; chlorophyll, 2003-2022</td><td>NOAA CoastWatch ERDDAP</td></tr>
     <tr><td class="mech">Copernicus GLORYS12 reanalysis</td><td>Currents, subsurface temperature, upwelling</td><td>Copernicus Marine Service</td></tr>
+    <tr><td class="mech">Airport METAR / ASOS</td><td>June-2023 storm ground-truth (La Ceiba, Roatán, San Pedro Sula)</td><td>Iowa Environmental Mesonet</td></tr>
+    <tr><td class="mech">Black-sand XRF (6 scans, 2 sites)</td><td>Sediment geochemistry driving the redox model</td><td>Field XRF (Tela Coral), 2026</td></tr>
     <tr><td class="mech">Field benthic surveys</td><td>Coral cover, <i>Diadema</i> density</td><td>Coral Reef Alliance / Operation Wallacea</td></tr>
   </table></div>
 
@@ -72,7 +76,10 @@
   <h2>Where you could move the needle</h2>
   <p class="body">The models make specific, falsifiable predictions. These measurements would confirm or kill them:</p>
   <div style="overflow-x:auto"><table class="data">
+    <caption><b>Where you could move the needle.</b> Each falsifiable model prediction and the field measurement that would confirm or kill it.</caption>
     <tr><th>Open question</th><th>Measurement that would settle it</th></tr>
+    <tr><td class="mech">Acute-hypoxia trigger?</td><td>In-situ dissolved-oxygen + CTD loggers on the reef, ideally before the next dry-season-break storm, to catch a stratification + oxygen crash in the act.</td></tr>
+    <tr><td class="mech">Is the black sand's manganese bioavailable?</td><td>A benchtop leach assay of the iron-free lagoon sand (oxic vs anoxic), measuring dissolved Mn/Fe release plus its trace-metal profile. The single most useful next measurement for the treatment idea.</td></tr>
     <tr><td class="mech">Heat-tolerant symbiont?</td><td>Symbiodiniaceae typing (ITS2) of Banco Capiro corals, shallow vs deep. The one mechanism we cannot model.</td></tr>
     <tr><td class="mech">Turbidity shading?</td><td>In-situ PAR/temperature loggers by depth, and bleaching-vs-depth scoring during a heat event.</td></tr>
     <tr><td class="mech">Carbonate subsidy?</td><td>Total alkalinity, DIC and nutrients at the Ulúa mouth and over the reef; the alkalinity:DIC ratio.</td></tr>
@@ -129,5 +136,6 @@ Thanks,
     <span>v1 · pre-expedition 2026</span>
   </footer>
 </div>
+<script src="site.js"></script>
 </body>
 </html>
