@@ -57,7 +57,8 @@ table.data{width:100%;border-collapse:collapse;font-size:13.5px}
 table.data th{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
   text-align:left;color:var(--water);padding:0 10px 8px 0;border-bottom:1px solid var(--line);vertical-align:bottom}
 table.data td{padding:11px 10px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
-table.data td.mech{font-weight:650;white-space:nowrap}
+table.data td.mech{font-weight:650}
+table.data th:first-child,table.data td.mech{width:46%}
 .tg{font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:4px;white-space:nowrap;background:var(--mist);color:var(--water)}
 
 /* CALLOUT — plain-terms explainer */
