@@ -1,0 +1,20 @@
+{
+  "river_id": 770321108,
+  "drainage_km2": 4134,
+  "note": "lower Ulua main channel feeding Tela coast (TDX-Hydro segments the delta; full basin ~22,000 km2)",
+  "retro_span": "1940-01-01..2026-07-24",
+  "mean_annual_Q": 121.9,
+  "june_clim_Q": 108.6,
+  "june2023_peak_Q": 31.0,
+  "june2023_peak_date": "2023-06-09",
+  "june2023_peak_z_vs_doy": -0.85,
+  "june2023_peak_pctile_all_days": 15.2,
+  "Q_pre_event": 6.2,
+  "Q_event": 17.9,
+  "Q_event_vs_pre": 2.92,
+  "wet_season_mean_Q": 213.3,
+  "wet_season_p90_Q": 379.2,
+  "peak_vs_wet_p90": 0.08,
+  "typical_annual_max_Q": 855.6,
+  "june2023_peak_vs_typ_annmax": 0.04
+}

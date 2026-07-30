@@ -69,13 +69,18 @@
     (1985-2026) for Banco Capiro and four comparison reefs. We computed each site's Maximum Monthly Mean (bleaching
     reference), seasonal thermal range, and Degree Heating Weeks. Data via NOAA / PacIOOS ERDDAP.
   </div>
-  <p class="body"><b>Result:</b> Banco Capiro's temperature closely tracks the degrading reefs (Maximum Monthly
-    Mean 29.65 °C vs 29.45-29.54 °C; near-identical seasonal swing; this is a descriptive comparison, not a formal
-    test). So it is <em>not</em> a cool refuge: for the decade it was exceptionally healthy, it sat in the same regional
-    heat as its declining neighbours, and it reached <b>DHW ≈ 14</b> in 2023.<sup class="cite"><a href="#r10">10</a></sup>
-    Temperature alone does not explain why it was healthy. (The reef <em>did</em> suffer mass mortality in 2023, but
-    the field team reports the killing event was an abrupt ~5-day event in <b>early June</b>, months before the October
-    heat peak, see §7. Not a simple heat kill.)</p>
+  <p class="body"><b>Result:</b> there is <em>no evidence of lower regional thermal exposure</em>. Banco Capiro's
+    Maximum Monthly Mean (29.80 °C) sits within <b>0.27 °C</b> of its degrading neighbours (29.53–29.72 °C), a spread
+    far smaller than the reef's own year-to-year variation in peak heat, so on the satellite record it is not measurably
+    cooler. If anything it runs hotter by the dose that matters: its cumulative <b>days above the bleaching threshold
+    (675) and peak heat (DHW ≈ 19 in 2023) exceed every clear-water neighbour</b> (which sat at ~14) and rival the
+    Florida Keys, where reefs died. This is a single-satellite-pixel comparison, so it rules out a <em>regional
+    surface-cool</em> refuge, not depth-specific cooling or high-frequency temperature swings (those need loggers in the
+    water). Temperature alone does not explain why it was healthy. (The reef <em>did</em> suffer mass mortality in 2023,
+    but the field team reports the killing event was an abrupt ~5-day event in <b>early June</b>, months before the
+    October heat peak, see §7. Not a simple heat kill.)</p>
+  <figure class="fig"><img src="data/fig_thermal_equivalence.png" alt="Cumulative days above the bleaching threshold per reef; Banco Capiro and Cocalito take ~4x the heat dose of clear neighbours and survive" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:10px 0">
+  <figcaption><b>Heat dose, 1985–2026 (NOAA Coral Reef Watch 5 km).</b> Cumulative days above the DHW8 bleaching threshold, with each site's all-time peak DHW labelled. Banco Capiro and Cocalito (dark) absorbed roughly four times the cumulative bleaching heat of the degrading clear-water neighbours (green) and a dose comparable to the Florida Keys, yet held high cover, so lower thermal exposure is not the explanation.</figcaption></figure>
   <div class="callout"><div class="lab">In plain terms</div>
     <p>It didn't get lucky with cooler water. It felt the same brutal heat as the reefs that are dying, a dose
       strong enough to kill most reefs, and lived anyway. That's the core of the mystery, and it points the
@@ -102,13 +107,25 @@
     Using measured clarity (Beer, Lambert: <code>light(z) = light₀·e^(−Kd·z)</code>) we compared light reaching the
     coral at Banco Capiro vs a clear reef, and formed a light-weighted effective heat dose.
   </div>
-  <p class="body"><b>Result:</b> at the measured clarity, chronic murk gives the <em>deep</em> bank partial relief;
-    the strongest shading is <em>episodic</em>, during floods and resuspension, exactly when heat peaks. Shallow
-    corals get the least shade, so they must lean on other mechanisms.</p>
+  <p class="body"><b>Result:</b> at the measured clarity, the murk gives the <em>deep</em> bank real optical relief
+    (at 20&nbsp;m the turbid reef receives roughly half the light-plus-heat dose of a clear reef) but shallow corals get
+    little shade. We report this as a light-transmission contrast by depth, not as a physiological "effective heat dose",
+    a construct we've withdrawn as unjustified. <b>Two honest corrections came out of a 2026 self-review</b> (below):
+    (1) the earlier claim that shading is "strongest exactly when heat peaks" does <em>not</em> survive removing the
+    seasonal cycle, within-season the turbidity–heat correlation falls from 0.35 to ~0.12, so turbidity is a
+    <em>baseline</em> property of the bay, not a heat-synchronised shield; (2) the 2023 mortality ran <em>opposite</em>
+    to the depth prediction. If deep shade protected coral, the deep bank should have fared best. Instead the <b>deep
+    central bank (to ~30&nbsp;m) collapsed to under 1% cover while the shallower Cocalito patch held ~68%</b>. So
+    turbidity shading is a genuine physical effect and a testable prediction, but it did <em>not</em> decide which corals
+    lived in 2023, that came down to biology (stand structure, symbionts, grazing) or a locally acute trigger on the
+    deep bank.</p>
   <div class="callout"><div class="lab">In plain terms</div>
-    <p>Sunburn needs sun. Cloudy water is like sunscreen for coral, it removes the "light" half of heat-plus-light
-      bleaching. It protects the deeper coral best, and works hardest during muddy floods, which is lucky timing.
-      It doesn't fully cover the shallow coral, which is why the "tougher algae" idea still matters.</p></div>
+    <p>Cloudy water is like sunscreen, but only for the deeper coral, and only as a steady background, not a shield
+      that switches on when it's hot. And here's the twist: in the 2023 die-off it was the deep, best-shaded coral that
+      died, while the shallow, less-shaded coral lived. So the murk helps in theory, but it isn't what saved the
+      survivors, which is why the "tougher biology" ideas still matter.</p></div>
+  <figure class="fig"><img src="data/fig_deseasonalized_corr.png" alt="Correlations before and after removing the seasonal cycle: shade-and-food link holds, shade-when-hot collapses" style="width:100%;max-width:620px;border:1px solid var(--line);border-radius:8px;margin:10px 0">
+  <figcaption><b>What survives removing the seasonal cycle</b> (monthly satellite data, 1997–2025, with block-bootstrap error bars). The turbidity–chlorophyll link ("shade and food arrive together") stays strong after deseasonalizing (r ≈ 0.80), though some of it is shared retrieval physics. The turbidity–heat link ("shading peaks when it's hottest") collapses from 0.35 to ~0.12, so that claim was mostly the shared seasonal cycle and has been dropped.</figcaption></figure>
 
   <h2>5 · Pollution as food + carbonate chemistry</h2>
   <p class="body"><b>Question:</b> do the river and sewage help or harm the reef's ability to grow?</p>
@@ -182,6 +199,13 @@
     time), a Monte Carlo over the uncertain parameters, keeping only parameter sets consistent with the reef being
     healthy in 2014. The full review and the code are public in the
     <a href="https://github.com/steps-re/rebel-reef/blob/main/ADVERSARIAL_REVIEW.md" target="_blank" rel="noopener">repository</a>.</p>
+  <p class="body soft">We did this again, harder, in July 2026: two independent frontier AI models were run as hostile
+    peer reviewers over the entire project, and their findings drove a second round of corrections now reflected across
+    these pages, the thermal claim reworded to what the satellite actually shows (§2), the turbidity "shade when hot"
+    claim dropped and the depth-vs-survival contradiction surfaced (§4), the June-2023 first flush demoted to a
+    candidate after the river was shown not to have flooded (§7, §10), and the coarse ocean-model oxygen field labelled
+    as model output rather than measured reef oxygen. The point of publishing a reef mystery is to be <em>right</em>,
+    not to be tidy.</p>
   <p class="body">The result is more honest and more interesting. The <em>acute</em> claim, that losing urchins makes
     the heat kill more coral outright, did <b>not</b> survive. But the <b>recovery</b> effect did: a reef that still
     has its grazers bleaches and then <em>recovers</em>, while a reef that has lost them gets overgrown by seaweed in
@@ -206,25 +230,29 @@
     <p>The reef didn't slowly starve after losing its urchins. Something arrived and killed it in five days. The urchin
       story may be a red herring, the survey that recorded the urchin loss came weeks later. Whatever this was, it
       looked like a sudden loss of oxygen: the urchins that survived crawled away, as animals do when water goes anoxic.</p></div>
-  <p class="body">The reef scientist who documented it (Juli Berwald, Tela Coral) <b>ruled out both bleaching and
-    disease</b> for this event: it was abrupt, hit many species at once, wasn't contagious, and came with no
-    satellite heat anomaly. <b>The leading hypothesis is an acute low-oxygen (hypoxic / anoxic) event.</b> There is a
+  <p class="body">The reef scientist who documented it (Juli Berwald, Tela Coral) <b>considered classic bleaching and
+    disease unlikely</b> for this event, on a visual assessment: it was abrupt, hit many species at once, wasn't
+    contagious, and came with no obvious satellite heat anomaly. That is an informed eyewitness judgement, not a
+    lab diagnosis, so neither is formally excluded. <b>The leading candidate is an acute low-oxygen (hypoxic /
+    anoxic) event.</b> There is a
     well-documented analog: the East Flower Garden Bank reef in the Gulf of Mexico suffered a near-identical mass death
     in <b>2016</b>, white bacterial mats over the corals and hazy green water, later confirmed by peer-reviewed work to
     be a short-lived pocket of oxygen-starved water (dissolved O₂ &lt; 2 mg/L) from freshwater runoff plus upwelling.
     The hard part at Tela is that <b>no water samples were taken</b> (it is a data-poor, hard-to-reach site), so the
     direct evidence is diver testimony, documented in the field team's own 2024 account and the Rebel Reef film, not a
     peer-reviewed paper.</p>
-  <p class="body"><b>What set it off? A "first flush" after a record-dry spring.</b> Tela's 2023 dry season was
-    unusually dry, the <b>driest 90-day stretch on record</b> at the reef (about half the normal Feb-May rain), and
-    the June 5-6 storm broke it. The first big rain after a long dry spell carries a <em>first flush</em>, a
-    concentrated slug of everything that piled up on the land and in the dry riverbeds while it wasn't raining:
-    nutrients, sediment, and <b>oxygen-demanding organic matter</b>, delivered fast off hard, dry, water-repellent
-    soils. Poured into a warm, calm, stratified bay, that oxygen-hungry slug can crash the dissolved oxygen right at
-    the reef within days. This first-flush effect is <em>strongest</em> in the tropics, and it is the same chain
-    documented at the Flower Garden Bank. It fits the puzzle, why <em>June</em> and not the hotter October, why the
-    dry-season timing, and why the water turned milky. It remains a hypothesis until someone samples the water during
-    the next such storm, but it is the explanation that ties the pieces together.</p>
+  <p class="body"><b>What might have set it off? A "first flush" after a dry spell, though the case is thinner than
+    we first thought.</b> The June 5-6 storm broke a moderately dry spring (the antecedent rainfall was around the
+    <b>33rd percentile</b> for the season, dry-ish, not the "record-dry" our first pass claimed). The first big rain
+    after a dry spell can carry a <em>first flush</em>: a concentrated slug of oxygen-demanding organic matter,
+    nutrients and sediment off hard, dry soils, which, poured into a warm, calm, stratified bay, can crash the dissolved
+    oxygen at the reef within days, the same chain documented at the Flower Garden Bank. It would explain <em>June</em>
+    rather than the hotter October, the dry-season timing, and the milky water. <b>But two independent checks in 2026
+    weakened the river version of this story:</b> modeled Ulúa discharge shows the river did <em>not</em> flood in early
+    June 2023 (peak ~31&nbsp;m³/s, the 15th percentile, below-normal for the date, far below a real flood), and the rain
+    products disagree on the pulse size (11–62&nbsp;mm). So any first flush would have to be a <em>local</em> runoff slug
+    off the immediate coast, not a river flood. This stays a <b>candidate hypothesis, not a conclusion</b>: it needs
+    someone sampling oxygen in the water during the next such storm, or the coral cores, to confirm.</p>
   <p class="body"><b>Can satellites see it?</b> We looked, daily true-color and ocean-color imagery over the exact
     early-June window. We found <em>no</em> surface plume, which is the expected answer for two reasons: the substance
     <em>sank</em> and sat on the reef (surface-viewing satellites cannot image a subsurface layer), and early June 2023
@@ -313,12 +341,27 @@
     daily SST, turbidity, chlorophyll, dissolved oxygen, nutrients, rainfall and wind, 1990-2026) and asked three
     questions with data. Full methodology and datasets are on the <a href="methods.html">Methods &amp; Data</a> page.</p>
 
-  <p class="body"><b>Was it a rare kind of storm? Yes.</b> Across 34 years there have been only <b>10 dry-season-break
-    storms</b> at Tela (a big rain pulse breaking a dry antecedent). Ranked by a hypoxia-risk composite (warm +
-    stratified + calm + pulse), <b>June 2023 ranks #2</b>, and it left a real regional dip in dissolved oxygen
-    afterward. Dissolved oxygen crashes after these storms <em>only</em> when they land on warm, stratified water,
-    exactly the June-2023 condition. The #1-ranked storm was <b>March 2024</b>, an even more extreme setup, which is
-    why "was the reef hit in March 2024?" is now a key <a href="questions.html">open question</a>.</p>
+  <p class="body"><b>Was it a rare kind of storm? Yes, and that ranking is robust.</b> Across 34 years there have been
+    only about <b>10 dry-season-break storms</b> at Tela (a rain pulse breaking a dry antecedent). Ranked by a
+    hypoxia-risk composite, <b>June 2023 ranks #2</b>. To check that the "#2" wasn't an artifact of our thresholds, we
+    re-ran the whole catalog under <b>972 different specifications</b> (every reasonable choice of pulse size, dry-spell
+    window, season and weighting): June 2023 lands in the top three in <b>97%</b> of them. So its rank is stable. The
+    honest caveats: the coarse (~27&nbsp;km) ocean-reanalysis oxygen field shows a regional dip afterward, but that is
+    <em>model output</em>, not measured reef oxygen, and it cannot resolve a bay-scale event. And the <b>#1-ranked storm
+    was March 2024</b>, an even more extreme setup that outranks June in 93% of specifications, which makes <b>"was the
+    reef also hit in March 2024?" the single most decisive <a href="questions.html">open question</a></b>: if it wasn't,
+    then a storm like this is not enough on its own to kill the reef.</p>
+  <figure class="fig"><img src="data/fig_multiverse_rank.png" alt="Storm-catalog multiverse: June 2023 rank is stable across 972 specifications, March 2024 outranks it" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>Storm-catalog "multiverse".</b> June 2023's rank among dry-season-break storms across 972 analysis specifications, top-three in 97%, so the ranking is not an artifact of chosen thresholds. March 2024 (blue) consistently outranks it, which is why whether the reef was hit in March 2024 is the key test of the whole hypothesis.</figcaption></figure>
+  <p class="body"><b>Did the river actually flood? No, which cuts against the simplest version.</b> We pulled the modeled
+    Ulúa discharge (GEOGLOWS, 1940–2026) and found that in early June 2023 the river ran <em>low</em>, peaking near
+    31&nbsp;m³/s (the 15th percentile, below normal for the date, and only ~8% of a typical wet-season high). Flow did
+    rise about threefold off a very low dry-season base, a real but small local response. A trickle like that cannot
+    build a strong freshwater lens or dump a sediment flood, so if a first flush hit the reef it came from local coastal
+    runoff, not the main river. (GEOGLOWS is itself a model, so it can miss a very local cell, a real stream gauge would
+    settle it.)</p>
+  <figure class="fig"><img src="data/fig_ulua_discharge_2023.png" alt="Modeled Ulua river discharge in 2023; the June die-off window shows low, below-normal flow far under a flood" style="width:100%;border:1px solid var(--line);border-radius:8px;margin:8px 0">
+  <figcaption><b>Ulúa river discharge, 2023 (GEOGLOWS retrospective, lower main channel).</b> Discharge through the reported die-off window (orange) peaked near 31&nbsp;m³/s, the 15th percentile of all days and well below both a typical wet-season high (dashed) and a typical annual flood peak (dotted). The river did not flood, which weakens the "river slug / freshwater lens" version of the first-flush idea.</figcaption></figure>
   <p class="body"><b>And the storm is confirmed by direct observations, not just models.</b> Beyond the gridded
     rainfall products (which disagree on the exact total), three independent airport weather stations, La Ceiba
     (~65&nbsp;km east), Roatán (offshore) and San Pedro Sula (inland), each recorded a <b>thunderstorm sweeping the
