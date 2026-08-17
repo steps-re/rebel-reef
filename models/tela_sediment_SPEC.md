@@ -29,7 +29,7 @@ that work: JITParticle needed (Scipy too slow) but **JIT segfaults on monthly fi
 and on grid-release with custom fields**; use DAILY fields (stable) and a modest point
 release. AdvectionRK4, continuous release (repeatdt ~ daily), track each cohort ~60 days.
 
-## Outputs (save to gs://airloom-marine-cdr/coral-tela/ AND print)
+## Outputs (save to gs://$GCS_BUCKET/coral-tela/ AND print)
 1. **Fraction of released particles that enter the Banco Capiro box** within 60 days
    (and separately the Cocalito box). Low fraction = "plume diverted" hypothesis supported.
 2. **Mean residence time** of any particles that do enter the bank box.
@@ -44,4 +44,4 @@ fine-scale "sand kicked up locally" shading is covered by the separate turbidity
 
 ## Housekeeping
 Run under nohup, sync results to GCS, then **STOP the VM** (`gcloud compute instances
-stop marine-cdr-vm`) when done. Account = mike@airloom.energy, project ai-engineering-team-491520.
+stop $VM_NAME`) when done. Set the account and project to your own.
