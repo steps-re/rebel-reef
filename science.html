@@ -143,25 +143,31 @@
     <p>Checking the 2024 monitoring data turned up an error in our own work. <b>Cocalito sits at 15.9118,
       -87.6171</b>, in the western bay beside Punta Sal, confirmed by the Healthy Reefs site register, by the
       published coordinates of the 2026 growth-anomalies study, and by the reef's description as lying at the western
-      end of the bay. Our own pipelines used two different and both incorrect positions, roughly 7&nbsp;km and
-      15&nbsp;km away, the second of which effectively sampled Banco Capiro instead. So every "Cocalito" thermal
-      number we had published came from somewhere else.</p>
+      end of the bay. <b>Every "Cocalito" number in our work was sampled at 15.94, -87.55, about 7&nbsp;km northeast
+      of the real site</b>, which is one 5&nbsp;km pixel over. Separately, our "Banco Capiro" point (15.90, -87.48)
+      sits about 4&nbsp;km northeast of the bank's actual survey stations near 15.864, -87.50, also about one pixel.
+      Both labels were displaced in the same direction, offshore and to the northeast.</p>
     <p>We re-pulled the same 5&nbsp;km heat product at the true position and at both legacy ones. <b>The correction
       moves the numbers slightly, and it moves them against our earlier understatement:</b></p>
     <div style="overflow-x:auto"><table class="data">
       <caption><b>Corrected heat dose at the true Cocalito position versus the positions we had been using.</b> Same product, same method, different pixel.</caption>
       <tr><th>position</th><th>5&nbsp;km pixel</th><th>peak DHW 2023</th><th>peak DHW 2024</th><th>days above DHW&nbsp;8, 2015-2025</th></tr>
       <tr><td class="mech"><b>Cocalito, true (15.9118, -87.6171)</b></td><td>15.925, -87.625</td><td><b>19.84</b></td><td><b>20.44</b></td><td><b>676</b></td></tr>
-      <tr><td class="mech">what we had been quoting</td><td>15.875, -87.475</td><td>18.81</td><td>19.30</td><td>610</td></tr>
-      <tr><td class="mech">Punta Sal (84.3% cover)</td><td>15.925, -87.625</td><td>19.84</td><td>20.44</td><td>676</td></tr>
-      <tr><td class="mech">Canyon, Banco Capiro (0.3% cover)</td><td>15.875, -87.525</td><td>19.39</td><td>19.88</td><td>645</td></tr>
+      <tr><td class="mech">our "Cocalito" point (15.94, -87.55)</td><td>15.925, -87.575</td><td>19.49</td><td>19.95</td><td>640</td></tr>
+      <tr><td class="mech">our "Banco Capiro" point (15.90, -87.48)</td><td>15.875, -87.475</td><td>18.81</td><td>19.30</td><td>610</td></tr>
+      <tr><td class="mech">Punta Sal, 84.3% cover</td><td>15.925, -87.625</td><td>19.84</td><td>20.44</td><td>676</td></tr>
+      <tr><td class="mech">Canyon, Banco Capiro, 0.3% cover</td><td>15.875, -87.525</td><td>19.39</td><td>19.88</td><td>645</td></tr>
     </table></div>
-    <p><b>Two things follow.</b> First, the surviving reef took <em>more</em> heat than we had credited it with, not
-      less, so the central observation is strengthened rather than weakened. Second, and more useful: across
-      15&nbsp;km of one bay the heat dose is effectively flat, 18.8 to 19.8 peak DHW and 610 to 676 days above the
-      threshold. <b>The site that died (Canyon, 0.3% cover) recorded slightly less heat than the site that lived
-      (Cocalito, 68.2%).</b> Whatever separates them, the satellite thermal record does not contain it, and Cocalito
-      and Punta Sal are not even separable, since they fall in the same 5&nbsp;km pixel.</p></div>
+    <p><b>Three things follow.</b> First, the displacement is about one pixel, so the thermal error is modest,
+      roughly 0.3 to 0.6 DHW, and it runs in the direction of <em>understating</em> the heat at the surviving reef.
+      The central observation is strengthened, not weakened. Second, and more useful: across 15&nbsp;km of one bay
+      the heat dose is effectively flat, 18.8 to 19.8 peak DHW and 610 to 676 days above the threshold, and
+      <b>the site that died (Canyon, 0.3% cover) recorded slightly less heat than the site that lived (Cocalito,
+      68.2%)</b>. Whatever separates them is not in the satellite thermal record, and Cocalito and Punta Sal are not
+      even separable from each other, since they share a pixel. Third, a caution that applies to everything on this
+      page: at 4&nbsp;km ocean-colour resolution and in a bay this size, <b>a one-pixel error is the difference
+      between sampling a reef and sampling the water next to it</b>, so our optical comparisons between named sites
+      inside Tela Bay should be read as bay-scale, not site-scale.</p></div>
 
   <p class="body"><b>Ground truth from inside the bay now says the same thing, and more sharply.</b> Divers who work
     both reefs describe <b>La Ensenada</b>, the inshore reef about 7&nbsp;km from Banco Capiro, as "like soup," and
@@ -528,10 +534,16 @@
   <div class="callout"><div class="lab">What replaced it is more useful: 2019 shows the shade can fail</div>
     <p>Profiling the whole 2019 season turned up something we had not looked for. <b>Through the entire 2019 heat
       build, Tela's water was anomalously clear.</b> Over August to November 2019, Kd490 ran <b>25% below</b> its
-      climatology and chlorophyll <b>36% below</b>, and every month from June onward was negative. Compare the other
-      two big heat years: 2023 was +2% turbidity and +14% chlorophyll, and 2024 was +18% and +34%. So the one year in
+      climatology and chlorophyll <b>36% below</b>, and every month from June onward was negative. So the one year in
       which the reef's turbidity shade <em>failed</em> during the heat build is a year it bleached en masse, on a
       heat dose (DHW 13) only about two-thirds of 2023's and roughly half its duration above threshold.</p>
+    <p><b>Checked twice, because the coordinates were wrong when we first ran it.</b> Re-running at the corrected
+      Cocalito position with a different sensor and algorithm (MODIS, KD2M) gives the same answer and a larger one:
+      August to November 2019 was <b>34% clearer</b> than climatology at Cocalito and 30% clearer at the Banco Capiro
+      site that died. The 2019 result is robust to both the position error and the choice of product. <b>The 2023 and
+      2024 magnitudes are not.</b> The two products agree those years were <em>not</em> anomalously clear, but they
+      disagree substantially on how turbid they were, so we quote the 2019 anomaly and deliberately do not put a
+      precise number on the others.</p>
     <p>This is the episodic version of the sunscreen idea in §4, and it is the same signature we found on the Florida
       Keys, which clear when they get hot and died. It is <em>consistent</em>, not proven: 2024 carried the record
       heat dose <em>with</em> its turbidity intact and reportedly bleached anyway, so clear water is not necessary for
