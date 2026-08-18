@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding other Rebel Reefs, Banco Capiro</title>
+<meta name="description" content="A global search for places built like Tela Bay: the physical and hydrological fingerprint of Banco Capiro and Cocalito, applied to every shallow tropical coast on Earth, and what it found.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="nav"><div class="inner">
+  <span class="brand">Tela Coral · <b>Rebel Reef</b></span>
+  <a href="index.html">Overview</a>
+  <a href="science.html">The Science</a>
+  <a href="fingerprint.html" class="on">Other Rebel Reefs</a>
+  <a href="methods.html">Methods &amp; Data</a>
+  <a href="glossary.html">Glossary</a>
+  <a href="media.html">Media &amp; Film</a>
+  <a href="researchers.html">Data &amp; Researchers</a>
+  <a href="references.html">References</a>
+  <a href="questions.html">Open Questions</a>
+  <a href="dive-requests.html">Dive Requests</a>
+  <a href="support.html">Support</a>
+</div></div>
+
+<div class="sheet">
+  <div class="eyebrow"><span>Global search · setting &amp; hydrology</span><span>August 2026</span></div>
+  <h1>Are there other Rebel Reefs?</h1>
+  <p class="lede">Tela Bay should not work. A turbid, river-fed, nutrient-loaded embayment is
+    where coral reefs are supposed to die, and instead it holds three of the highest-cover reefs in the
+    entire Mesoamerican system. If a place built like this can carry 68 to 84% live coral, the obvious
+    question is whether there are others, and whether anyone has looked.</p>
+  <p class="body">So we described Tela's <b>physical situation</b> in numbers, deliberately ignoring anything
+    about its ecology or its health, and searched every shallow tropical coast on Earth for the same build.
+    Then we asked, for each match, whether there is a reef there and whether anyone has studied it.</p>
+
+  <div class="callout"><div class="lab">In plain terms</div>
+    <p>Think of it as a fingerprint of the <em>setting</em>, not the reef. How enclosed the bay is, how steep
+      and shallow the seabed, how narrow the shelf, how murky the water, how big the river, how flashy its
+      flood season, what rock its catchment is made of. Nothing about coral at all. Then we look for that
+      same fingerprint elsewhere, and only afterwards ask what is living there.</p></div>
+
+  <h2 id="map">The search, and what it found</h2>
+  <p class="maphelp">Every marker is a place the search compared against Tela. Colour shows what we
+    concluded. Tap any marker for its numbers. Note that the three <b>verified</b> sites were confirmed not
+    by satellites but by reading the local-language scientific literature.</p>
+  <div id="map"></div>
+  <div class="legend" id="legend"></div>
+  <p class="prov">Setting features from ETOPO1 bathymetry and NASA MODIS-Aqua ocean colour. Hydrology from
+    RiverATLAS v10 (HydroATLAS). Heat from NOAA Coral Reef Watch. Reef records from GBIF, normalised by total
+    occurrence records. Coral cover at Tela from the Healthy Reefs Initiative 2024 survey.</p>
+
+  <h2>Tela's fingerprint</h2>
+  <p class="body">Against every other shallow tropical coastal cell on Earth, Tela is unusual in a specific
+    combination. Each number below is how many standard deviations Tela sits from the global average.</p>
+  <div style="overflow-x:auto"><table class="data">
+    <caption><b>The physical signature of Tela Bay.</b> Structural features only. Nothing here describes the reef itself.</caption>
+    <tr><th>Feature</th><th>Tela vs the world</th><th>Meaning</th></tr>
+    <tr><td class="mech">Enclosure (land within 10 / 25 / 50 km)</td><td><b>+1.51 / +1.40 / +1.47</b></td><td>Strongly embayed, a pocket rather than open coast</td></tr>
+    <tr><td class="mech">Local seabed relief</td><td><b>+1.47</b></td><td>Banks and drop-offs, not a flat shelf</td></tr>
+    <tr><td class="mech">Chlorophyll</td><td>+0.82</td><td>Productive, nutrient-fed water</td></tr>
+    <tr><td class="mech">Sediment exposure (Kd490)</td><td>+0.64</td><td>Murky</td></tr>
+    <tr><td class="mech">Shelf width / distance offshore</td><td><b>−0.90 / −0.90</b></td><td>Narrow shelf, deep water close in</td></tr>
+    <tr><td class="mech">River (Ulúa): catchment, flow, flood swing, karst</td><td>21,882&nbsp;km², 443&nbsp;m³/s, 9.9×, 14%</td><td>A large, seasonally flashy river on soft rock</td></tr>
+  </table></div>
+
+  <h2>Does the search work? The controls say yes</h2>
+  <p class="body">A search like this is only worth reading if it recovers places we already know are built
+    like Tela, and correctly rejects places that are not. It does, and on purely physical grounds:</p>
+  <div style="overflow-x:auto"><table class="data">
+    <caption><b>Control test.</b> Known turbid, river-influenced systems versus known open clear-water systems, scored blind to their ecology.</caption>
+    <tr><th>Place</th><th>Setting rank</th><th>Verdict</th></tr>
+    <tr><td class="mech">Bocas del Toro, Panama</td><td><b>top 0.22%</b></td><td>✓ turbid, river-fed, embayed</td></tr>
+    <tr><td class="mech">Varadero, Colombia (beside the Magdalena)</td><td><b>top 0.82%</b></td><td>✓ our closest published analogue</td></tr>
+    <tr><td class="mech">Faro Cazones, Cuba</td><td>top 1.7%</td><td>✓ but see the karst note below</td></tr>
+    <tr><td class="mech">Utila, Honduras</td><td>19.7%</td><td>✓ correctly rejected, clear water</td></tr>
+    <tr><td class="mech">Bonaire</td><td>37.4%</td><td>✓ correctly rejected, no rivers at all</td></tr>
+    <tr><td class="mech">Cordelia Bank, Honduras</td><td>43.6%</td><td>✓ correctly rejected</td></tr>
+  </table></div>
+  <p class="body">The last one matters most. <b>Cordelia Bank is a genuine bright spot</b>, roughly 54% coral
+    cover, and the search puts it far from Tela. That is correct and it is the point: Cordelia is a healthy
+    reef in <em>clear</em> water. It is not a physical replica. A search that ranked it highly would be
+    tracking reef health, which is not what this measures.</p>
+  <p class="body">Adding real river chemistry sharpened things further. <b>Faro Cazones and both Cuban
+    candidates sit on catchments that are 89 to 100% karst</b>, against Tela's 14%. They are topological
+    twins fed by chemically different water: karst catchments deliver high-alkalinity flow. Without the
+    hydrology layer they looked like near-perfect matches.</p>
+
+  <h2 id="found">What the search found</h2>
+  <p class="body">Ninety-one distinct systems survived the cut. Forty were profiled for hydrology, twelve
+    checked for evidence of reef, and three investigated properly. Those three all turned out to hold coral.</p>
+  <div style="overflow-x:auto"><table class="data">
+    <caption><b>The three verified matches.</b> All confirmed through local-language literature, not satellites.</caption>
+    <tr><th>Place</th><th>Coral cover reported</th><th>Why it matters</th></tr>
+    <tr><td class="mech"><b>Toliara, southwest Madagascar</b></td><td><b>46.8 ± 3.4%</b></td><td>The strongest parallel found anywhere. A monitored site sits <b>8 km from the mouth of the Onilahy</b>, and the river's influence on the reef is already being studied there. There is a resident marine institute working the exact question we are asking at Tela.</td></tr>
+    <tr><td class="mech"><b>Bengkulu, west Sumatra</b></td><td><b>49.3%, 57.2%, 68.4%</b></td><td>Three villages surveyed in Indonesian-language journals, 19 to 26 coral species. <b>68.4% is Cocalito-class.</b> International databases held <em>zero</em> coral records for this coast.</td></tr>
+    <tr><td class="mech"><b>Tana Delta, Kenya</b></td><td>"rich coral reef patches"</td><td>Reefs under seasonal freshwater plumes, with the Tana's sediment load swinging from 2,796 to 24,322 tonnes per day, a factor of <b>8.7×</b> against the Ulúa's 9.9× flood swing.</td></tr>
+  </table></div>
+
+  <div class="callout"><div class="lab">The finding, and it is not the one we expected</div>
+    <p><b>None of these reefs is undiscovered. They are known locally and invisible internationally.</b> The
+      gap is language and data-sharing, not exploration. Every one of them has published science, and in
+      Madagascar's case an institute studying river-influenced reefs, none of which surfaces in an
+      English-language search or in the global occurrence databases.</p>
+    <p>That is more useful than a discovery would have been. It means there are existing datasets and
+      existing research groups for the comparison Tela needs, and the next step is a set of emails rather
+      than an expedition.</p></div>
+
+  <h2>Two methods that failed, kept on the record</h2>
+  <p class="body">Both failures point at the same wall, and the wall is the interesting part.</p>
+  <div style="overflow-x:auto"><table class="data">
+    <caption><b>Discarded approaches.</b> Each was tested against Tela as a known positive before being trusted, and each failed that test.</caption>
+    <tr><th>Method</th><th>What happened</th></tr>
+    <tr><td class="mech"><b>Global reef habitat mapping</b> (Allen Coral Atlas)</td><td><b>It reports no reef at Cocalito.</b> Essentially no data coverage there at all, for a reef holding 68% live coral. Satellite habitat mapping needs water clear enough to see the bottom, so it is structurally blind in turbid water. We had briefly used its silence as evidence of absence. That was wrong and is withdrawn.</td></tr>
+    <tr><td class="mech"><b>Sentinel-2 bottom signal and texture</b></td><td>Designed to survive turbidity by looking for patchy shallow bottom. <b>Both muddy control sites beat both known reefs.</b> The Ulúa river mouth returned the strongest bottom signal in the whole test, and muddy inshore water was three times more "textured" than Cocalito. Sediment plumes produce exactly the signal reef structure would.</td></tr>
+  </table></div>
+  <p class="body"><b>Turbid-water reefs cannot be found from optical satellites.</b> That is not a complaint
+    about our implementation, it is the reason this class of reef goes unrecorded, and it is why the only
+    method that worked was reading what local scientists had already written.</p>
+
+  <h2>What this search does not cover</h2>
+  <p class="body">Reported plainly, because the honest answer to "did you find them all" is no.</p>
+  <div style="overflow-x:auto"><table class="data">
+    <caption><b>Coverage limits of the global search.</b> What was examined, and what was not.</caption>
+    <tr><th>Limit</th><th>Detail</th></tr>
+    <tr><td class="mech">The verification is a thin tip</td><td>~99,000 candidate cells → 91 systems → 40 with hydrology → 12 with reef evidence → <b>3 investigated</b></td></tr>
+    <tr><td class="mech">The cutoff is too tight, demonstrably</td><td>An earlier pass put <b>Varadero outside the shortlist</b> despite it being a real, published analogue. Genuine matches are being missed between the cutoff and roughly the top 2%.</td></tr>
+    <tr><td class="mech">Resolution excludes small systems</td><td>The grid is ~10 km. Tela's western pocket is about one cell. <b>Any cove-scale reef smaller than that is invisible to this search</b>, which is a real limitation given that the differences that matter at Tela occur over a kilometre.</td></tr>
+    <tr><td class="mech">Latitude and temperature cuts</td><td>Nothing outside 35°N-35°S was screened, and a warm-water floor removed 13,000 shallow cells, some of which are marginal reef environments that matter for climate refugia.</td></tr>
+    <tr><td class="mech">One target</td><td>The whole search is anchored on Cocalito. Banco Capiro or Punta Sal would each return a different list.</td></tr>
+  </table></div>
+  <p class="body">The next cheap improvement is loosening the cutoff and running hydrology on roughly seven
+    hundred systems instead of ninety. The expensive one, and the one that would matter most, is repeating
+    the whole search at finer resolution, because that is the only way to see reefs the size of Cocalito.</p>
+
+  <p class="body soft">Method, code and the full candidate list are described on <a href="methods.html">Methods
+    &amp; Data</a>. If you work on any of the coasts named here, we would like to hear from you, see
+    <a href="support.html">Get in touch</a>.</p>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="site.js"></script>
+<script>
+const C={target:'#db5a34',verified:'#2f8f7f',analogue:'#0f5c63',lightly:'#c1892a',notreef:'#8a9a96',rejected:'#6b7f7c'};
+const S=[
+ {n:'Cocalito, Tela',ll:[15.9118,-87.6171],c:'target',t:'The target. 68.2% live coral.'},
+ {n:'Punta Sal, Tela',ll:[15.9211,-87.6055],c:'target',t:'84.3% live coral, the highest in the Mesoamerican system.'},
+ {n:'Banco Capiro (Canyon)',ll:[15.8642,-87.5066],c:'target',t:'0.3% cover. Same bay, one pixel away from reefs at 68-84%.'},
+ {n:'Toliara / Onilahy, Madagascar',ll:[-25.198,44.242],c:'verified',t:'VERIFIED by local literature. 46.8% scleractinian cover. A monitored site sits 8 km from the Onilahy river mouth. Setting match 0.69, hydrology 1.18. Flood swing 10.0x against Tela\'s 9.9x.'},
+ {n:'Bengkulu, west Sumatra',ll:[-4.536,102.902],c:'verified',t:'VERIFIED by Indonesian-language surveys: 49.3%, 57.2% and 68.4% live coral at three villages, 19-26 species. Global databases held ZERO coral records for this coast.'},
+ {n:'Tana Delta, Kenya',ll:[-2.560,40.649],c:'verified',t:'VERIFIED. Rich reef patches under seasonal river plumes. Sediment load swings 2,796 to 24,322 t/day (8.7x). Setting 0.75, hydrology 1.08.'},
+ {n:'Bocas del Toro, Panama',ll:[9.35,-82.25],c:'analogue',t:'CONTROL, passed. Top 0.22% of coastal cells for setting similarity.'},
+ {n:'Varadero, Colombia',ll:[10.303,-75.582],c:'analogue',t:'CONTROL, passed. Top 0.82%. Our closest published analogue, ~80% cover beside the Magdalena.'},
+ {n:'Faro Cazones, Cuba',ll:[22.1043,-81.5159],c:'analogue',t:'CONTROL, passed on setting (top 1.7%) but its catchment is 89% karst against Tela\'s 14%. Chemically a different system.'},
+ {n:'Santa Marta, Colombia',ll:[11.184,-74.246],c:'lightly',t:'Closest combined match (0.92) but thoroughly studied already: 36,111 coral records. A comparison site, not a discovery.'},
+ {n:'Gulf of Papua',ll:[-8.579,146.291],c:'lightly',t:'Reef present and lightly studied: 110 coral records in 4,351 total, 25x Tela\'s detection rate on a fraction of the effort.'},
+ {n:'East Madagascar',ll:[-22.143,48.105],c:'lightly',t:'Setting match 0.52. Reef mapped, almost no biological sampling.'},
+ {n:'East Madagascar (north)',ll:[-19.808,48.913],c:'lightly',t:'Hydrology among the closest to the Ulua of anywhere on Earth (1.00).'},
+ {n:'Tortuguero, Costa Rica',ll:[10.735,-83.498],c:'notreef',t:'The single best SETTING match (0.32), but 1 coral record in 1,002,287. Well sampled and genuinely not a reef, a big muddy river mouth.'},
+ {n:'Pacific Costa Rica',ll:[9.567,-84.666],c:'notreef',t:'25 coral records in 2.4 million. Well sampled, not a reef.'},
+ {n:'Sepik mouth, PNG',ll:[-3.728,144.404],c:'notreef',t:'Huge river (3,818 m3/s), 2 coral records in 10,245. Likely reef-free.'},
+ {n:'Utila, Honduras',ll:[16.10,-86.90],c:'rejected',t:'CONTROL, correctly rejected at 19.7%. Clear water.'},
+ {n:'Cordelia Bank, Honduras',ll:[16.2984,-86.5191],c:'rejected',t:'CONTROL, correctly rejected at 43.6%. A real bright spot (~54% cover) but in CLEAR water, so not a physical replica.'},
+ {n:'Bonaire',ll:[12.15,-68.28],c:'rejected',t:'CONTROL, correctly rejected at 37.4%. No rivers at all: 31 km2 catchment.'}
+];
+const map=L.map('map',{scrollWheelZoom:false}).setView([5,20],2);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Imagery © Esri',maxZoom:13}).addTo(map);
+S.forEach(s=>{
+  const r=(s.c==='target'||s.c==='verified')?9:7;
+  L.circleMarker(s.ll,{radius:r,color:'#fff',weight:1.6,fillColor:C[s.c],fillOpacity:0.92})
+   .bindPopup('<b>'+s.n+'</b><br>'+s.t).addTo(map);
+});
+document.getElementById('legend').innerHTML=[
+ [C.target,'Tela Bay (the target)'],[C.verified,'Verified match, coral confirmed'],
+ [C.analogue,'Known analogue, control passed'],[C.lightly,'Reef present, lightly studied'],
+ [C.notreef,'Well sampled, not a reef'],[C.rejected,'Control correctly rejected']
+].map(x=>`<span class="grp"><span class="sw" style="background:${x[0]}"></span>${x[1]}</span>`).join('');
+</script>
+</body>
+</html>
